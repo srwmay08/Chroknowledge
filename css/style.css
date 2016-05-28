@@ -1,0 +1,294 @@
+body {
+    margin: 0;
+    background-color: cadetblue;
+    font-family: 'Yantramanav', sans-serif;
+    font-weight: 100;
+    color: black;
+}
+
+
+/* DOLPHINS THEME:
+TEAL: #008E97 GOLD: #F58220 DARK: #005778 */
+
+.vertical {
+    font-size: 1.3em;
+    position: absolute;
+    top: 2%;
+    text-decoration: none;
+    width: 20%;
+    padding: 2%
+}
+
+.subcog {
+    font-size:
+}
+
+#menuleft {
+    z-index: 1;
+}
+
+#menuright {
+    z-index: 1;
+}
+
+.todayis {
+    font-size: 3vh;
+    padding: 2% 0% 0% 0%;
+    font-weight: 100;
+}
+
+.jumbo {
+    margin-bottom: -31%;
+}
+
+.header {}
+
+.row {
+    margin: 2%;
+    display: inline;
+}
+
+.mesq {
+    width: 3%;
+    height: 3%;
+}
+
+.zfix {
+    z-index: 15;
+}
+
+.center {
+    text-align: center;
+}
+
+.time {
+    z-index: -1;
+}
+
+.counter {
+    position: absolute;
+    left: 50%;
+    color: #008E97;
+}
+
+.clock {
+    z-index: -1;
+}
+
+.quicks {
+    display: flex;
+    padding: 0 0 18% 0;
+    width: 55%;
+    margin: auto;
+}
+
+.button {
+    width: 20%;
+}
+
+.left {
+    float: left;
+    left: 0;
+    text-align: left;
+}
+
+.right {
+    float: right;
+    right: 0;
+    text-align: right;
+}
+
+.large {
+    font-size: 27vh;
+    padding: 2% 0% 0% 0%;
+    font-weight: 100;
+}
+
+.calendar {
+    display: flex;
+}
+
+.month {
+    width: 100%;
+    height: 10vh;
+    background-color: cornflowerblue;
+}
+
+.days {
+    width: 100%;
+    height: 4vh;
+    background-color: blanchedalmond
+}
+
+.cells {
+    margin: .5%;
+    padding-bottom: 13.28%;
+    width: 13.28%;
+    border: solid 1px black;
+    background-color: cornsilk
+}
+
+.graphcontainer {
+    display: flex;
+    position: relative;
+}
+
+.bar {
+    float: right;
+    height: 45px;
+    width: 300px;
+    position: absolute;
+    background-color: red;
+    left: .5%;
+    top: 19%;
+    right: 0;
+    bottom: 0;
+}
+
+.icons {
+    padding: 2%;
+    font-size: 35px;
+}
+
+.block {
+    display: inline;
+}
+
+// FLIPPER 
+
+/* entire container, keeps perspective */
+
+.flip-container {
+    perspective: 1000px;
+    width: 20%;
+}
+
+
+/* flip the pane when hovered */
+
+.flip-container:hover .flipper,
+.flip-container.hover .flipper {
+    transform: rotateY(180deg);
+}
+
+.flip-container,
+.front,
+.back {
+    width: 100%;
+}
+
+
+/* flip speed goes here */
+
+.flipper {
+    transition: 0.6s linear all;
+    transform-style: preserve-3d;
+    position: relative;
+    width: inherit;
+}
+
+
+/* hide back of pane during swap */
+
+.front,
+.back {
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+/* front pane, placed above back */
+
+.front {
+    z-index: 2;
+    /* for firefox 31 */
+    transform: rotateY(0deg);
+}
+
+
+/* back, initially hidden pane */
+
+.back {
+    transform: rotateY(180deg);
+}
+
+.vertical.flip-container {
+    position: relative;
+}
+
+.vertical .back {
+    transform: rotateX(180deg);
+}
+
+.vertical.flip-container .flipper {
+    transform-origin: 100% 213.5px;
+    /* half of height */
+}
+
+.vertical.flip-container:hover .flipper {
+    transform: rotateX(-180deg);
+}
+
+// TEST FLIPPER
+.container {
+    width: 200px;
+    height: 260px;
+    position: relative;
+    border: 1px solid #ccc;
+    -webkit-perspective: 800px;
+    -moz-perspective: 800px;
+    -o-perspective: 800px;
+    perspective: 800px;
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    -webkit-transition: -webkit-transform 1s;
+    -moz-transition: -moz-transform 1s;
+    -o-transition: -o-transform 1s;
+    transition: transform 1s;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform-origin: 50% 50%;
+}
+
+.card div {
+    display: block;
+    height: 100%;
+    width: 100%;
+    line-height: 260px;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: 140px;
+    position: absolute;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.card .front {
+    background: red;
+}
+
+.card .back {
+    background: blue;
+    -webkit-transform: rotateY( 180deg);
+    -moz-transform: rotateY( 180deg);
+    -o-transform: rotateY( 180deg);
+    transform: rotateY( 180deg);
+}
+
+.card.flipped {
+    -webkit-transform: rotateY( 180deg);
+    -moz-transform: rotateY( 180deg);
+    -o-transform: rotateY( 180deg);
+    transform: rotateY( 180deg);
+}

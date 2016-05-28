@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SOMETHINGTIME</title>
+    <link href='https://fonts.googleapis.com/css?family=Yantramanav:400,100' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/canvasjs/1.7.0/canvasjs.min.js"></script>
+
+</head>
+
+<body>
+    <div class="cogs menu vertical left" id="menuleft" hidden="true">
+        <div class="cogsheader">
+            <h3>Customize</h3>
+        </div>
+        Income:
+        <br>Gross:
+        <input id="gross" type="text">
+        <br>Hours:
+        <input id="hours" type="text">
+        <br>Rate:
+        <input id="rate" type="text">
+        <br>Net:
+        <input id="net" type="text">
+        <br>Taxes:
+        <input id="taxes" type="text">
+        <br>
+        <br>Housing:
+        <br>Mortgage/Rent:
+        <input id="house" type="text">
+        <br>Insurance:
+        <input id="houseins" type="text">
+        <br>
+        <br>Utilities:
+        <br>Cable/Internet:
+        <input id="cable" type="text">
+        <br>Cellphone:
+        <input id="cell" type="text">
+        <br>Gas/Water/Sewer:
+        <input id="sewer" type="text">
+        <br>
+        <br>Vehicle:
+        <br>Premium:
+        <input id="car" type="text">
+        <br>Insurance:
+        <input id="carins" type="text">
+        <br>Gas/Maintenance:
+        <input id="gas" type="text">
+        <br>
+        <br>Grocery:
+        <input id="food" type="text">
+        <br>
+        <br>Entertainment:
+        <input id="fun" type="text">
+        <br>
+        <br>Savings:
+        <input id="fun" type="text">
+    </div>
+    <div class="menu vertical right" id="menuright" hidden="true">
+        <h3>Links</h3>
+        <h5>This was made using:</h5>
+        <a href="#">Celery seakale</a>
+        <a href="#">Dulse daikon</a>
+        <a href="#">Zucchini garlic</a>
+        <a href="#">Catsear azuki bean</a>
+        <a href="#">Dandelion bunya</a>
+        <a href="#">Rutabaga</a>
+    </div>
+    <div class="container">
+        <div class="row split header">
+            <div id="cogs" class="c-button zfix icons mesqu options left">
+                <i class="zfix fa fa-cogs" aria-hidden="true"></i>
+
+                <script>
+                    $(document).ready(function () {
+                        $('#cogs').click(function () {
+                            $('#menuleft').toggle("slide");
+                        });
+                    });
+                </script>
+
+            </div>
+            <div id="burger" class="c-button zfix icons mesq menu right">
+                <i class="zfix fa fa-bars" aria - hidden="true"></i>
+
+                <script>
+                    $(document).ready(function () {
+                        $('#burger').click(function () {
+                            $('#menuright').slideToggle("slide");
+                        });
+                    });
+                </script>
+            </div>
+        </div>
+
+
+
+        <div class="row center time">
+            <div class="clock large">
+                <div id="active"></div>
+            </div>
+            <div class="counter float">03
+            </div>
+        </div>
+
+
+
+        <div class="row center quicks">
+
+            <div class="flip-container">
+                <div class="flipper">
+                    <div class="fade front button square pomodoro">
+                        <i class="fa fa-dot-circle-o fa-5x" aria-hidden="true"></i>
+
+                        <br> Pomodoro
+                    </div>
+                    <div class="back">
+                        <div class="block">
+                            Work Length:
+                            <br>
+                            <input id="pomhh" type="text" value="0" maxlength="2" size="3"> :
+                            <input id="pommm" type="text" value="0" maxlength="2" size="3"> :
+                            <input id="pomss" type="text" value="05" maxlength="2" size="3">
+                        </div>
+                        <br>
+                        <div class="block">
+                            Break Length:
+                            <br>
+                            <input id="bhh" type="text" value="0" maxlength="2" size="3"> :
+                            <input id="bmm" type="text" value="0" maxlength="2" size="3"> :
+                            <input id="bss" type="text" value="10" maxlength="2" size="3">
+                        </div>
+                        <br>
+                        <div class="block">
+                            Cycles:
+                            <br>
+                            <input id="cyc" type="text" value="3" maxlength="1" size="2">
+                        </div>
+                        <br>
+                        <button id="pombutton" type="button">Start Timer</button>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-container">
+                <div class="flipper">
+                    <div class="fade2 front button square pelko">
+                        <i class="fa fa-bomb fa-5x" aria-hidden="true"></i>
+                        <br> Pelko
+                    </div>
+                    <div class="back">
+                        Random Alarm Between 0 and Length:
+                        <br>
+                        <input type="text" value="0" maxlength="2" size="3"> :
+                        <input type="text" value="35" maxlength="2" size="3"> :
+                        <input type="text" value="00" maxlength="2" size="3">
+                        <br>
+                        <button type="button">Start Timer</button>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-container">
+                <div class="flipper">
+                    <div class="fade3 front button square alarm">
+                        <i class="fa fa-clock-o fa-5x" aria-hidden="true"></i>
+
+
+                        <br> Alarm
+                    </div>
+                    <div class="back">
+                        <div class="block">
+                            Set Future Alarm:
+                            <br>
+                            <input type="text" value="hh" maxlength="2" size="3"> :
+                            <input type="text" value="mm" maxlength="2" size="3"> :
+                            <input type="text" value="ss" maxlength="2" size="3">
+                        </div>
+                        <br>
+                        <button type="button">Set Alarm</button>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-container">
+                <div class="flipper">
+                    <div class="fade4 front button square countdown">
+                        <i class="fa fa-undo fa-5x" aria-hidden="true"></i>
+
+                        <br> Count Down
+                    </div>
+                    <div class="back">
+                        <div class="block">
+                            Countdown Alarm Timer
+                            <br>
+                            <input type="text" value="hh" maxlength="2" size="3"> :
+                            <input type="text" value="mm" maxlength="2" size="3"> :
+                            <input type="text" value="ss" maxlength="2" size="3">
+                        </div>
+                        <br>
+                        <button type="button">Start Timer</button>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-container">
+                <div class="flipper">
+                    <div class="fade5 front button square stopwatch">
+                        <i class="fa fa-history fa-5x fa-flip-horizontal" aria-hidden="true"></i>
+
+                        <br> Stop Watch
+                    </div>
+                    <div class="back">
+                        Timer Starts Instantly
+                        <br>
+                        <button type="button">Start</button>
+                        <button type="button">Pause</button>
+                        <button type="button">Split</button>
+                        <br>
+                        <button type="button">Reset</button>
+                    </div>
+                </div>
+            </div>
+            <div class="flip-container">
+                <div class="flipper">
+                    <div class="fade5 front button square cal">
+                        <i class="fa fa-calendar fa-5x" aria-hidden="true"></i>
+                        <br> Calendar
+                    </div>
+                    <div class="back">
+                        <i class="fa fa-calendar fa-5x" aria-hidden="true"></i>
+                        <br> Calendar
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                $(document).ready(function () {
+                    $(".fade").hide(0).delay(0).fadeIn(1000);
+                    $(".fade2").hide(0).delay(50).fadeIn(1250);
+                    $(".fade3").hide(0).delay(100).fadeIn(1450);
+                    $(".fade4").hide(0).delay(150).fadeIn(1600);
+                    $(".fade5").hide(0).delay(200).fadeIn(1700);
+                });
+
+                $(document).ready(function () {
+                    $(".pomodoro").mouseover(function () {
+                        $(".pomodoro").css("background-color", "yellow");
+                    });
+                    $(".pomodoro").mouseout(function () {
+                        $(".pomodoro").css("background-color", "cadetblue");
+                    });
+
+
+                });
+
+                //                $("#pombutton").click(function () {
+                //                    var pomhh = $("#pomhh").val();
+                //                    var pommm = $("#pommm").val();
+                //                    var pomss = $("#pomss").val();
+                //                    var bhh = $("#bhh").val();
+                //                    var bmm = $("#bmmm").val();
+                //                    var bss = $("#bmss").val();
+                //                    $("#date").html("");
+                //                    activeComponent = PomodoroTimer(pomhh, pommm, pomss, bhh, bmm, bss);
+                //                    $("#date").html(activeComponent);
+                //                });
+
+
+                //				function PomodoroTimer(workH, workM, workS, breakH, breakM, breakS) {
+                //					this.workTime = moment.duration(workH + ":" + workM + ":" + workS);
+                //					this.breakTime = moment.duration(breakH + ":" + breakM + ":" + breakS);
+                //
+                //					this.WAITING = 0;
+                //					this.WORKING = 1;
+                //					this.BREAKING = 2;
+                //
+                //					this.endTime = null;
+                //					this.state = this.WAITING;
+                //
+                //					function onStartClick(evt) {
+                //						this.endTime = moment().add(workTime);
+                //						document.getElementById("date").innerHTML
+                //					}
+                //
+                //					function onTimerEnd() {
+                //						if (this.state == this.WORKING) {
+                //							this.state = this.BREAKING;
+                //							this.endTime = moment().add(breakTime);
+                //						} else if (this.state == this.BREAKING) {
+                //							this.state = this.WORKING;
+                //							this.endTime = moment().add(workTime);
+                //						}
+                //					};
+                //
+                //
+                //					function update() {
+                //						if (!endTime) {
+                //							return;
+                //						}
+                //						var currentTime = moment();
+                //						if (currentTime.isAfter(endTime) || currentTime.isSame(endTime)) {
+                //							onTimerEnd();
+                //						}
+                //					}
+                //				}
+                //
+
+                $(document).ready(function () {
+                    $(".pelko").mouseover(function () {
+                        $(".pelko").css("background-color", "yellow").style("display");
+                    });
+                    $(".pelko").mouseout(function () {
+                        $(".pelko").css("background-color", "cadetblue").style("none");
+                    });
+                });
+
+                $(document).ready(function () {
+                    $(".alarm").mouseover(function () {
+                        $(".alarm").css("background-color", "yellow");
+                    });
+                    $(".alarm").mouseout(function () {
+                        $(".alarm").css("background-color", "cadetblue");
+                    });
+                });
+
+                $(document).ready(function () {
+                    $(".countdown").mouseover(function () {
+                        $(".countdown").css("background-color", "yellow");
+                    });
+                    $(".countdown").mouseout(function () {
+                        $(".countdown").css("background-color", "cadetblue");
+                    });
+                });
+
+                $(document).ready(function () {
+                    $(".stopwatch").mouseover(function () {
+                        $(".stopwatch").css("background-color", "yellow");
+                    });
+                    $(".stopwatch").mouseout(function () {
+                        $(".stopwatch").css("background-color", "cadetblue");
+                    });
+                });
+
+                $(document).ready(function () {
+                    $(".cal").mouseover(function () {
+                        $(".cal").css("background-color", "yellow");
+                    });
+                    $(".cal").mouseout(function () {
+                        $(".cal").css("background-color", "cadetblue");
+                    });
+                });
+            </script>
+        </div>
+
+
+
+
+
+        <div class="overflow center">
+            <div id="chartContainer" style="height: 300px; width: 100%;">
+            </div>
+            <!--
+            <div class="month"> Month
+            </div>
+            <div class="days"> Days
+            </div>
+            <div class="graphcontainer">
+                <div class="bar left"> Float Bar
+                </div>
+                <div class="cells"> Cells
+                </div>
+                <div class="cells"> Cells
+                </div>
+                <div class="cells"> Yesterday
+                </div>
+                <div class="cells"> Current Day
+                    <br>
+                    <a href="http://hereistoday.com/">Hereistoday</a>
+                </div>
+                <div class="cells"> Tomorrow
+                </div>
+                <div class="cells"> Cells </div>
+                <div class="cells"> Cells
+                </div>
+            </div>
+-->
+        </div>
+        <div class="footer center"> F / T / L </div>
+
+        <script>
+            var activeComponent = null;
+
+            function addToDom() {
+                var active = $('#active');
+                active.html(activeComponent.getHtml());
+            };
+
+            function switchComponent(item) {
+                activeComponent = item;
+                addToDom();
+                activeComponent.update();
+            };
+
+
+
+            function Clock() {
+                this.getHtml = function () {
+                    return '<div id="clock" class="jumbo clock"></div><br><div id="todayis" class="todayis clock"></div>';
+                };
+                this.update = function () {
+                    var date = moment(new Date).format('h:mm:ss');
+                    $('#clock').html(date);
+                    var todayis = moment(new Date).format('dddd, MMMM Do');
+                    $('#todayis').html(todayis);
+                };
+            };
+
+
+
+            function Pomodoro(workH, workM, workS, breakH, breakM, breakS, cycles) {
+                this.workTime = moment.duration(workH + ":" + workM + ":" + workS);
+                this.breakTime = moment.duration(breakH + ":" + breakM + ":" + breakS);
+                this.cycles = cycles;
+                console.log(this.workTime);
+                console.log(this.breakTime);
+                console.log(this.cycles);
+
+                this.WAITING = 0;
+                this.WORKING = 1;
+                this.BREAKING = 2;
+
+                this.state = 1;
+
+                this.duration = moment.duration({
+                    seconds: this.workTime.seconds(),
+                    minutes: this.workTime.minutes(),
+                    hours: this.workTime.hours()
+                });
+
+                this.getHtml = function () {
+                    return '<div id="pomodoro"></div>'
+                };;
+                this.setState = function () {
+                    if (this.cycles >= 0) {
+                        if (this.state == this.WORKING) {
+                            this.cycles = this.cycles - 1;
+                            this.state = this.BREAKING;
+                            this.duration = moment.duration({
+                                seconds: this.breakTimeTime.seconds(),
+                                minutes: this.breakTimeTime.minutes(),
+                                hours: this.breakTimeTime.hours()
+                            });
+                        } else if (this.state == this.BREAKING) {
+                            this.state = this.WORKING;
+                            this.endTime = moment().add(workTime);
+                            this.duration = moment.duration({
+                                seconds: this.workTime.seconds(),
+                                minutes: this.workTime.minutes(),
+                                hours: this.workTime.hours()
+                            });
+                        };
+                    }
+                };
+
+                this.update = function () {
+                    if (this.duration > 0) {
+                        this.duration = this.duration.subtract(1, 's');
+                        $('#pomodoro').html(this.duration.minutes() + ":" + this.duration.seconds());
+                    } else if (this.duration <= 0) {
+
+                    }
+                };
+            };
+
+            //DISPLAY THE TIMER
+
+            //COUNTDOWN THE TIMER
+
+            //UPDATE STATE WHEN FINISHED + REMOVE A CYCLE
+
+            //COUNTDOWN THE BREAK
+
+            //RESTART IF CYCLES > 0
+
+            //END OF CYCLE RELOADS CLOCK
+
+
+
+            //				var timer = setInterval(function () {
+            //
+            //					if (duration.asSeconds() <= 0) {
+            //						console.log("STOP!");
+            //						console.log(duration.asSeconds());
+            //						clearInterval(timerID);
+            //					} else {
+            //
+            //						duration = moment.duration(duration.asSeconds() - interval, 'seconds');
+            //
+            //						$('.countdown').html(duration.format("hh:mm:ss", {
+            //							trim: false
+            //						}));
+            //					}
+            //
+            //				}, 1000);
+
+
+
+
+
+            $("#pombutton").click(function () {
+                var pomhh = $("#pomhh").val();
+                var pommm = $("#pommm").val();
+                var pomss = $("#pomss").val();
+                var bhh = $("#bhh").val();
+                var bmm = $("#bmm").val();
+                var bss = $("#bss").val();
+                var cyc = $("#cyc").val();
+                switchComponent(new Pomodoro(pomhh, pommm, pomss, bhh, bmm, bss, cyc));
+            });
+
+            switchComponent(new Clock());
+
+
+            setInterval(function () {
+                if (!activeComponent) {
+                    return;
+                }
+
+                activeComponent.update();
+            }, 1000);
+
+
+            //			function InnerClock() { // this.date = moment(new Date()); // this.datetime.html(date.format('h:mm:ss')); // this.getHtml = function () { // // } // }; // // datetime = $('#active') // InnerClock(); // setInterval(InnerClock, 1000); // // // // activeComponent = new Clock;
+
+
+            //			function Pomodoro(workH, workM, workS, breakH, breakM, breakS) {
+            //
+            //
+            //
+            //
+            //				this.endTime = null;
+            //				this.state = this.WAITING;
+            //
+            //				function onStartClick() {
+            //					this.dateTime.html(workTime);
+            //					dateTime = $('#date');
+            //
+            //					//					this.endTime = moment().add(workTime);
+            //					document.getElementById("date").innerHTML
+            //					this.state = 1;
+            //				};
+            //
+            //				onStartClick();
+            //
+            //				function onTimerEnd() {
+            //					if (this.state == this.WORKING) {
+            //						this.state = this.BREAKING;
+            //						this.endTime = moment().add(breakTime);
+            //					} else if (this.state == this.BREAKING) {
+            //						this.state = this.WORKING;
+            //						this.endTime = moment().add(workTime);
+            //					}
+            //				};
+            //
+            //
+            //				function update() {
+            //					if (!endTime) {
+            //						return;
+            //					}
+            //					var currentTime = moment();
+            //					if (currentTime.isAfter(endTime) || currentTime.isSame(endTime)) {
+            //						onTimerEnd();
+            //					}
+            //				}
+            //
+            //				function getHtml() {
+            //					return
+            //				}
+            //
+            //
+            //			};
+            //
+            //
+            //			$("#pombutton").click(function () {
+            //				var pomhh = $("#pomhh").val();
+            //				var pommm = $("#pommm").val();
+            //				var pomss = $("#pomss").val();
+            //				var bhh = $("#bhh").val();
+            //				var bmm = $("#bmmm").val();
+            //				var bss = $("#bmss").val();
+            //				var cyc = $("#cyc").val();
+            //				$("#date").html("");
+            //				activeComponent = new Pomodoro(pomhh, pommm, pomss, bhh, bmm, bss);
+            //				$("#date").html(activeComponent.getHtml());
+            //			});
+
+
+            function Pelko() {
+
+            };
+
+            function Alarm() {
+
+            };
+
+            function Count() {
+
+            };
+
+            function Stopwatch() {
+
+            };
+
+            function Calendar() {
+
+            };
+        </script>
+
+    </div>
+</body>
+
+
+
+
+
+</html>
