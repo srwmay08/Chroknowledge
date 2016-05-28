@@ -108,9 +108,6 @@
             <div class="counter float">03
             </div>
         </div>
-
-
-
         <div class="row center quicks">
 
             <div class="flip-container">
@@ -252,61 +249,7 @@
                     $(".pomodoro").mouseout(function () {
                         $(".pomodoro").css("background-color", "cadetblue");
                     });
-
-
                 });
-
-                //                $("#pombutton").click(function () {
-                //                    var pomhh = $("#pomhh").val();
-                //                    var pommm = $("#pommm").val();
-                //                    var pomss = $("#pomss").val();
-                //                    var bhh = $("#bhh").val();
-                //                    var bmm = $("#bmmm").val();
-                //                    var bss = $("#bmss").val();
-                //                    $("#date").html("");
-                //                    activeComponent = PomodoroTimer(pomhh, pommm, pomss, bhh, bmm, bss);
-                //                    $("#date").html(activeComponent);
-                //                });
-
-
-                //				function PomodoroTimer(workH, workM, workS, breakH, breakM, breakS) {
-                //					this.workTime = moment.duration(workH + ":" + workM + ":" + workS);
-                //					this.breakTime = moment.duration(breakH + ":" + breakM + ":" + breakS);
-                //
-                //					this.WAITING = 0;
-                //					this.WORKING = 1;
-                //					this.BREAKING = 2;
-                //
-                //					this.endTime = null;
-                //					this.state = this.WAITING;
-                //
-                //					function onStartClick(evt) {
-                //						this.endTime = moment().add(workTime);
-                //						document.getElementById("date").innerHTML
-                //					}
-                //
-                //					function onTimerEnd() {
-                //						if (this.state == this.WORKING) {
-                //							this.state = this.BREAKING;
-                //							this.endTime = moment().add(breakTime);
-                //						} else if (this.state == this.BREAKING) {
-                //							this.state = this.WORKING;
-                //							this.endTime = moment().add(workTime);
-                //						}
-                //					};
-                //
-                //
-                //					function update() {
-                //						if (!endTime) {
-                //							return;
-                //						}
-                //						var currentTime = moment();
-                //						if (currentTime.isAfter(endTime) || currentTime.isSame(endTime)) {
-                //							onTimerEnd();
-                //						}
-                //					}
-                //				}
-                //
 
                 $(document).ready(function () {
                     $(".pelko").mouseover(function () {
@@ -354,39 +297,9 @@
                 });
             </script>
         </div>
-
-
-
-
-
         <div class="overflow center">
             <div id="chartContainer" style="height: 300px; width: 100%;">
             </div>
-            <!--
-            <div class="month"> Month
-            </div>
-            <div class="days"> Days
-            </div>
-            <div class="graphcontainer">
-                <div class="bar left"> Float Bar
-                </div>
-                <div class="cells"> Cells
-                </div>
-                <div class="cells"> Cells
-                </div>
-                <div class="cells"> Yesterday
-                </div>
-                <div class="cells"> Current Day
-                    <br>
-                    <a href="http://hereistoday.com/">Hereistoday</a>
-                </div>
-                <div class="cells"> Tomorrow
-                </div>
-                <div class="cells"> Cells </div>
-                <div class="cells"> Cells
-                </div>
-            </div>
--->
         </div>
         <div class="footer center"> F / T / L </div>
 
@@ -428,11 +341,11 @@
                 console.log(this.breakTime);
                 console.log(this.cycles);
 
+                this.state = 1;
+
                 this.WAITING = 0;
                 this.WORKING = 1;
                 this.BREAKING = 2;
-
-                this.state = 1;
 
                 this.duration = moment.duration({
                     seconds: this.workTime.seconds(),
@@ -475,41 +388,6 @@
                 };
             };
 
-            //DISPLAY THE TIMER
-
-            //COUNTDOWN THE TIMER
-
-            //UPDATE STATE WHEN FINISHED + REMOVE A CYCLE
-
-            //COUNTDOWN THE BREAK
-
-            //RESTART IF CYCLES > 0
-
-            //END OF CYCLE RELOADS CLOCK
-
-
-
-            //				var timer = setInterval(function () {
-            //
-            //					if (duration.asSeconds() <= 0) {
-            //						console.log("STOP!");
-            //						console.log(duration.asSeconds());
-            //						clearInterval(timerID);
-            //					} else {
-            //
-            //						duration = moment.duration(duration.asSeconds() - interval, 'seconds');
-            //
-            //						$('.countdown').html(duration.format("hh:mm:ss", {
-            //							trim: false
-            //						}));
-            //					}
-            //
-            //				}, 1000);
-
-
-
-
-
             $("#pombutton").click(function () {
                 var pomhh = $("#pomhh").val();
                 var pommm = $("#pommm").val();
@@ -531,72 +409,6 @@
 
                 activeComponent.update();
             }, 1000);
-
-
-            //			function InnerClock() { // this.date = moment(new Date()); // this.datetime.html(date.format('h:mm:ss')); // this.getHtml = function () { // // } // }; // // datetime = $('#active') // InnerClock(); // setInterval(InnerClock, 1000); // // // // activeComponent = new Clock;
-
-
-            //			function Pomodoro(workH, workM, workS, breakH, breakM, breakS) {
-            //
-            //
-            //
-            //
-            //				this.endTime = null;
-            //				this.state = this.WAITING;
-            //
-            //				function onStartClick() {
-            //					this.dateTime.html(workTime);
-            //					dateTime = $('#date');
-            //
-            //					//					this.endTime = moment().add(workTime);
-            //					document.getElementById("date").innerHTML
-            //					this.state = 1;
-            //				};
-            //
-            //				onStartClick();
-            //
-            //				function onTimerEnd() {
-            //					if (this.state == this.WORKING) {
-            //						this.state = this.BREAKING;
-            //						this.endTime = moment().add(breakTime);
-            //					} else if (this.state == this.BREAKING) {
-            //						this.state = this.WORKING;
-            //						this.endTime = moment().add(workTime);
-            //					}
-            //				};
-            //
-            //
-            //				function update() {
-            //					if (!endTime) {
-            //						return;
-            //					}
-            //					var currentTime = moment();
-            //					if (currentTime.isAfter(endTime) || currentTime.isSame(endTime)) {
-            //						onTimerEnd();
-            //					}
-            //				}
-            //
-            //				function getHtml() {
-            //					return
-            //				}
-            //
-            //
-            //			};
-            //
-            //
-            //			$("#pombutton").click(function () {
-            //				var pomhh = $("#pomhh").val();
-            //				var pommm = $("#pommm").val();
-            //				var pomss = $("#pomss").val();
-            //				var bhh = $("#bhh").val();
-            //				var bmm = $("#bmmm").val();
-            //				var bss = $("#bmss").val();
-            //				var cyc = $("#cyc").val();
-            //				$("#date").html("");
-            //				activeComponent = new Pomodoro(pomhh, pommm, pomss, bhh, bmm, bss);
-            //				$("#date").html(activeComponent.getHtml());
-            //			});
-
 
             function Pelko() {
 
