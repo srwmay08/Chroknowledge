@@ -153,11 +153,11 @@
                     <div class="back">
                         Random Alarm Between 0 and Length:
                         <br>
-                        <input type="text" value="0" maxlength="2" size="3"> :
-                        <input type="text" value="35" maxlength="2" size="3"> :
-                        <input type="text" value="00" maxlength="2" size="3">
+                        <input id="pelkohh" type="text" value="0" maxlength="2" size="3">:
+                        <input id="pelkomm" type="text" value="35" maxlength="2" size="3">:
+                        <input id="pelkoss" type="text" value="00" maxlength="2" size="3">
                         <br>
-                        <button type="button">Start Timer</button>
+                        <button id="pelbutton" type="button">Start Timer</button>
                     </div>
                 </div>
             </div>
@@ -240,54 +240,42 @@
                     $(".fade3").hide(0).delay(100).fadeIn(1450);
                     $(".fade4").hide(0).delay(150).fadeIn(1600);
                     $(".fade5").hide(0).delay(200).fadeIn(1700);
-                });
 
-                $(document).ready(function () {
-                    $(".pomodoro").mouseover(function () {
+                    $(".pomodoro").click(function () {
                         $(".pomodoro").css("background-color", "yellow");
                     });
                     $(".pomodoro").mouseout(function () {
                         $(".pomodoro").css("background-color", "cadetblue");
                     });
-                });
 
-                $(document).ready(function () {
-                    $(".pelko").mouseover(function () {
+                    $(".pelko").click(function () {
                         $(".pelko").css("background-color", "yellow").style("display");
                     });
                     $(".pelko").mouseout(function () {
                         $(".pelko").css("background-color", "cadetblue").style("none");
                     });
-                });
 
-                $(document).ready(function () {
-                    $(".alarm").mouseover(function () {
+                    $(".alarm").click(function () {
                         $(".alarm").css("background-color", "yellow");
                     });
-                    $(".alarm").mouseout(function () {
+                    $(".alarm").click(function () {
                         $(".alarm").css("background-color", "cadetblue");
                     });
-                });
 
-                $(document).ready(function () {
-                    $(".countdown").mouseover(function () {
+                    $(".countdown").click(function () {
                         $(".countdown").css("background-color", "yellow");
                     });
-                    $(".countdown").mouseout(function () {
+                    $(".countdown").click(function () {
                         $(".countdown").css("background-color", "cadetblue");
                     });
-                });
 
-                $(document).ready(function () {
-                    $(".stopwatch").mouseover(function () {
+                    $(".stopwatch").click(function () {
                         $(".stopwatch").css("background-color", "yellow");
                     });
-                    $(".stopwatch").mouseout(function () {
+                    $(".stopwatch").click(function () {
                         $(".stopwatch").css("background-color", "cadetblue");
                     });
-                });
 
-                $(document).ready(function () {
                     $(".cal").mouseover(function () {
                         $(".cal").css("background-color", "yellow");
                     });
@@ -347,43 +335,50 @@
                 this.WORKING = 1;
                 this.BREAKING = 2;
 
-                this.duration = moment.duration({
+                this.activeTime = moment.duration({
                     seconds: this.workTime.seconds(),
                     minutes: this.workTime.minutes(),
                     hours: this.workTime.hours()
                 });
 
-                this.getHtml = function () {
-                    return '<div id="pomodoro"></div>'
-                };;
-                this.setState = function () {
-                    if (this.cycles >= 0) {
-                        if (this.state == this.WORKING) {
-                            this.cycles = this.cycles - 1;
-                            this.state = this.BREAKING;
-                            this.duration = moment.duration({
-                                seconds: this.breakTimeTime.seconds(),
-                                minutes: this.breakTimeTime.minutes(),
-                                hours: this.breakTimeTime.hours()
-                            });
-                        } else if (this.state == this.BREAKING) {
-                            this.state = this.WORKING;
-                            this.endTime = moment().add(workTime);
-                            this.duration = moment.duration({
-                                seconds: this.workTime.seconds(),
-                                minutes: this.workTime.minutes(),
-                                hours: this.workTime.hours()
-                            });
-                        };
+                this.checkState = function () {
+                    if (this.cycles == 0) {
+                        return console.log("I'm done pomodoro")
+                    }
+                    if (this.state == this.WORKING) {
+                        this.state = 2;
+                        this.cycles = this.cycles - 1;
+                        this.activeTime = moment.duration({
+                            seconds: this.breakTime.seconds(),
+                            minutes: this.breakTime.minutes(),
+                            hours: this.breakTime.hours()
+                        });
+                    } else if (this.state == this.BREAKING) {
+                        this.state = 1;
+                        this.activeTime = moment.duration({
+                            seconds: this.workTime.seconds(),
+                            minutes: this.workTime.minutes(),
+                            hours: this.workTime.hours()
+                        });
+                    } else if (this.state == this.WAITING) {
+                        this.state = 0;
+                        this.activeTime = moment.duration({
+                            seconds: this.workTime.seconds(),
+                            minutes: this.workTime.minutes(),
+                            hours: this.workTime.hours()
+                        });
                     }
                 };
 
-                this.update = function () {
-                    if (this.duration > 0) {
-                        this.duration = this.duration.subtract(1, 's');
-                        $('#pomodoro').html(this.duration.minutes() + ":" + this.duration.seconds());
-                    } else if (this.duration <= 0) {
+                this.getHtml = function () {
+                    return '<div id="pomodoro"></div>'
+                };
 
+                this.update = function () {
+                    this.activeTime = this.activeTime.subtract(1, 's');
+                    $('#pomodoro').html(this.activeTime.minutes() + ":" + this.activeTime.seconds());
+                    if (this.activeTime == 0) {
+                        this.checkState();
                     }
                 };
             };
@@ -410,9 +405,68 @@
                 activeComponent.update();
             }, 1000);
 
-            function Pelko() {
+            function Pelko(bombH, bombM, bombS) {
+                this.bombTime = moment.duration(bombH + ":" + bombM + ":" + bombS);
 
+                this.state = 1;
+
+                this.WAITING = 0;
+                this.WORKING = 1;
+
+                this.activeTime = moment.duration({
+                    seconds: this.bombTime.seconds(),
+                    minutes: this.bombTime.minutes(),
+                    hours: this.bombTime.hours()
+                });
+
+                this.checkState = function () {
+                    if (this.cycles == 0) {
+                        return console.log("I'm done pomodoro")
+                    }
+                    if (this.state == this.WORKING) {
+                        this.state = 2;
+                        this.cycles = this.cycles - 1;
+                        this.activeTime = moment.duration({
+                            seconds: this.breakTime.seconds(),
+                            minutes: this.breakTime.minutes(),
+                            hours: this.breakTime.hours()
+                        });
+                    } else if (this.state == this.BREAKING) {
+                        this.state = 1;
+                        this.activeTime = moment.duration({
+                            seconds: this.workTime.seconds(),
+                            minutes: this.workTime.minutes(),
+                            hours: this.workTime.hours()
+                        });
+                    } else if (this.state == this.WAITING) {
+                        this.state = 0;
+                        this.activeTime = moment.duration({
+                            seconds: this.workTime.seconds(),
+                            minutes: this.workTime.minutes(),
+                            hours: this.workTime.hours()
+                        });
+                    }
+                };
+
+                this.getHtml = function () {
+                    return '<div id="pomodoro"></div>'
+                };
+
+                this.update = function () {
+                    this.activeTime = this.activeTime.subtract(1, 's');
+                    $('#pomodoro').html(this.activeTime.minutes() + ":" + this.activeTime.seconds());
+                    if (this.activeTime == 0) {
+                        this.checkState();
+                    }
+                };
             };
+
+            $("#pelbutton").click(function () {
+                var pelkohh = $("#pelkohh").val();
+                var pelkomm = $("#pelkomm").val();
+                var pelkoss = $("#pelkoss").val();
+                switchComponent(new Pelko(pelkohh, pelkomm, pelkoss));
+            });
 
             function Alarm() {
 
