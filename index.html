@@ -6,7 +6,12 @@
 	<title>Chroknowledge</title>
 	<link href='https://fonts.googleapis.com/css?family=Yantramanav:400,100' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
 	<link rel="stylesheet" href="css/style.css">
+
+	<link rel="stylesheet" href="css/mobile.css">
+
+
 
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
@@ -123,7 +128,7 @@
 							<br>
 							<input id="pomhh" type="text" value="0" maxlength="2" size="3"> :
 							<input id="pommm" type="text" value="0" maxlength="2" size="3"> :
-							<input id="pomss" type="text" value="05" maxlength="2" size="3">
+							<input id="pomss" type="text" value="10" maxlength="2" size="3">
 						</div>
 						<br>
 						<div class="block">
@@ -131,7 +136,7 @@
 							<br>
 							<input id="bhh" type="text" value="0" maxlength="2" size="3"> :
 							<input id="bmm" type="text" value="0" maxlength="2" size="3"> :
-							<input id="bss" type="text" value="10" maxlength="2" size="3">
+							<input id="bss" type="text" value="5" maxlength="2" size="3">
 						</div>
 						<br>
 						<div class="block">
@@ -154,8 +159,8 @@
 						Random Alarm Between 0 and Length:
 						<br>
 						<input id="pelkohh" type="text" value="0" maxlength="2" size="3">:
-						<input id="pelkomm" type="text" value="35" maxlength="2" size="3">:
-						<input id="pelkoss" type="text" value="00" maxlength="2" size="3">
+						<input id="pelkomm" type="text" value="00" maxlength="2" size="3">:
+						<input id="pelkoss" type="text" value="30" maxlength="2" size="3">
 						<br>
 						<button id="pelbutton" type="button">Start Timer</button>
 					</div>
@@ -374,13 +379,13 @@
 				};
 
 				this.getHtml = function () {
-					return '<div id="pomodoro"></div>'
+					return '<div id="pomodoro" class="jumbo"></div>'
 				};
 
 				this.update = function () {
 					this.activeTime = this.activeTime.subtract(1, 's');
-					$('#pomodoro').html(this.activeTime.minutes() + ":" + this.activeTime.seconds());
-					if (this.activeTime == 0) {
+					$('#pomodoro').html(Math.floor(this.activeTime.asHours()) + moment.utc(this.activeTime.asMilliseconds()).format(":mm:ss"));
+					if (this.activeTime <= 0) {
 						this.checkState();
 					}
 				};
@@ -423,15 +428,15 @@
 				};
 
 				this.getHtml = function () {
-					return '<div id="pelko"></div><div id="counter">TEST</div>'
+					return '<div id="pelko" class="jumbo"></div><div id="counter">TEST</div>'
 				};
 
 				this.update = function () {
 					this.activeTime = this.activeTime.subtract(1, 's');
 					this.alarmTime = this.alarmTime.subtract(1, 's');
-					$('#pelko').html(this.activeTime.minutes() + ":" + this.activeTime.seconds());
-					$('#counter').html(this.alarmTime.minutes() + ":" + this.alarmTime.seconds());
-					if (this.alarmTime < 1) {
+					$('#pelko').html(Math.floor(this.activeTime.asHours()) + moment.utc(this.activeTime.asMilliseconds()).format(":mm:ss"));
+					$('#counter').html(Math.floor(this.alarmTime.asHours()) + moment.utc(this.alarmTime.asMilliseconds()).format(":mm:ss"));
+					if (this.alarmTime <= 1) {
 						this.checkState();
 					}
 				};
@@ -445,31 +450,16 @@
 			});
 
 			function Alarm(alarmH, alarmM, alarmS) {
-				this.alarmTime = moment.duration(alarmH + ":" + alarmM + ":" + alarmS);
-
-
-				this.activeTime = moment.duration({
-					seconds: this.alarmTime.seconds(),
-					minutes: this.alarmTime.minutes(),
-					hours: this.alarmTime.hours()
-				});
-
-				this.futureTime = moment().add(this.activeTime.second);
-				console.log(this.futureTime);
-
+				this.alarmTime = moment(alarmH + ":" + alarmM + ":" + alarmS, "hh:mm:SS");
 
 				this.getHtml = function () {
-					return '<div id="alarm"></div>'
+					return '<div id="alarm" class="jumbo"></div>'
 				};
 
 				this.update = function () {
-					this.activeTime = this.activeTime.subtract(1, 's');
-					this.alarmTime = this.alarmTime.subtract(1, 's');
-					$('#alarm').html(this.activeTime.minutes() + ":" + this.activeTime.seconds());
-					$('#counter').html(this.alarmTime.minutes() + ":" + this.alarmTime.seconds());
-					if (this.alarmTime < 1) {
-						this.checkState();
-					}
+					this.startTime = moment();
+					this.activeTime = moment.duration(this.alarmTime.diff(this.startTime));
+					$('#alarm').html(this.activeTime.hours() + ":" + this.activeTime.minutes() + ":" + this.activeTime.seconds());
 				};
 			};
 
@@ -525,11 +515,7 @@
 
 				this.update = function () {
 					this.activeTime = this.activeTime.add(1, 's');
-					$('#stopwatch').html(
-						this.activeTime.minutes() + ":" +
-						this.activeTime.seconds() + ":" +
-						this.activeTime.milliseconds());
-					console.log(this.alarmTime);
+					$('#stopwatch').html(this.activeTime.hours() + ":" + this.activeTime.minutes() + ":" + this.activeTime.seconds() + ":" + this.activeTime.milliseconds());
 					if (this.alarmTime < 1) {
 						this.checkState();
 					}

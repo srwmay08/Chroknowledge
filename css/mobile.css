@@ -1,0 +1,19 @@
+@media(max-width: 600px) {
+	.quicks {
+		background-color: yellow;
+		display: flex;
+		padding: 0% 0% 18% 0%;
+		margin-right: 20px;
+		width: 80%;
+		margin: auto;
+		font-size: .5em;
+	}
+	.button {
+		width: 20%;
+	}
+	.jumbo {
+		font-size: 5em;
+		background-color: yellow;
+		transition: .6s;
+	}
+}
