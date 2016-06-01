@@ -12,8 +12,29 @@
 		width: 20%;
 	}
 	.jumbo {
-		font-size: 5em;
+		font-size: 7em;
 		background-color: yellow;
 		transition: .6s;
+	}
+}
+
+@media(max-width: 800px) {
+	.quicks {
+		background-color: yellow;
+		display: flex;
+		padding: 0% 0% 18% 0%;
+		margin-right: 20px;
+		width: 80%;
+		margin: auto;
+		font-size: .9em;
+	}
+	.button {
+		width: 20%;
+	}
+	.icons {
+		margin: 2%;
+		font-size: 25px;
+		transform: 2s;
+		z-index: 6;
 	}
 }

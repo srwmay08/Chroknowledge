@@ -2,568 +2,561 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Chroknowledge</title>
-    <link href='https://fonts.googleapis.com/css?family=Yantramanav:400,100' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+	<meta charset="UTF-8">
+	<title>Chroknowledge</title>
+	<link href='https://fonts.googleapis.com/css?family=Yantramanav:400,100' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 
-    <link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/style.css">
 
-    <link rel="stylesheet" href="css/mobile.css">
+	<link rel="stylesheet" href="css/mobile.css">
 
 
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/canvasjs/1.7.0/canvasjs.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/canvasjs/1.7.0/canvasjs.min.js"></script>
 
 </head>
 
 <body>
-    <div class="cogs menu vertical left" id="menuleft" hidden="true">
-        <div class="cogsheader">
-            <h3>Customize</h3>
-        </div>
-        Income:
-        <br>Gross:
-        <input id="gross" type="text">
-        <br>Hours:
-        <input id="hours" type="text">
-        <br>Rate:
-        <input id="rate" type="text">
-        <br>Net:
-        <input id="net" type="text">
-        <br>Taxes:
-        <input id="taxes" type="text">
-        <br>
-        <br>Housing:
-        <br>Mortgage/Rent:
-        <input id="house" type="text">
-        <br>Insurance:
-        <input id="houseins" type="text">
-        <br>
-        <br>Utilities:
-        <br>Cable/Internet:
-        <input id="cable" type="text">
-        <br>Cellphone:
-        <input id="cell" type="text">
-        <br>Gas/Water/Sewer:
-        <input id="sewer" type="text">
-        <br>
-        <br>Vehicle:
-        <br>Premium:
-        <input id="car" type="text">
-        <br>Insurance:
-        <input id="carins" type="text">
-        <br>Gas/Maintenance:
-        <input id="gas" type="text">
-        <br>
-        <br>Grocery:
-        <input id="food" type="text">
-        <br>
-        <br>Entertainment:
-        <input id="fun" type="text">
-        <br>
-        <br>Savings:
-        <input id="fun" type="text">
-    </div>
-    <div class="menu vertical right" id="menuright" hidden="true">
-        <h3>Links</h3>
-        <h5>This was made using:</h5>
-        <a href="#">Celery seakale</a>
-        <a href="#">Dulse daikon</a>
-        <a href="#">Zucchini garlic</a>
-        <a href="#">Catsear azuki bean</a>
-        <a href="#">Dandelion bunya</a>
-        <a href="#">Rutabaga</a>
-    </div>
-    <div class="container">
-        <div class="row split header">
-            <div id="cogs" class="c-button zfix icons mesqu options left">
-                <i class="zfix fa fa-cogs" aria-hidden="true"></i>
-
-                <script>
-                    $(document).ready(function () {
-                        $('#cogs').click(function () {
-                            $('#menuleft').toggle("slide");
-                        });
-                    });
-                </script>
-
-            </div>
-            <div id="burger" class="c-button zfix icons mesq menu right">
-                <i class="zfix fa fa-bars" aria - hidden="true"></i>
-
-                <script>
-                    $(document).ready(function () {
-                        $('#burger').click(function () {
-                            $('#menuright').slideToggle("slide");
-                        });
-                    });
-                </script>
-            </div>
-        </div>
-
-
-
-        <div class="row center time">
-            <div class="clock large">
-                <div id="active"></div>
-            </div>
-            <div class="counter float">03
-            </div>
-        </div>
-        <div class="row center quicks">
-
-            <div class="flip-container">
-                <div class="flipper">
-                    <div class="fade front button square pomodoro">
-                        <i class="fa fa-dot-circle-o fa-5x" aria-hidden="true"></i>
-
-                        <br> Pomodoro
-                    </div>
-                    <div class="back">
-                        <div class="block">
-                            Work Length:
-                            <br>
-                            <input id="pomhh" type="text" value="0" maxlength="2" size="3"> :
-                            <input id="pommm" type="text" value="0" maxlength="2" size="3"> :
-                            <input id="pomss" type="text" value="10" maxlength="2" size="3">
-                        </div>
-                        <br>
-                        <div class="block">
-                            Break Length:
-                            <br>
-                            <input id="bhh" type="text" value="0" maxlength="2" size="3"> :
-                            <input id="bmm" type="text" value="0" maxlength="2" size="3"> :
-                            <input id="bss" type="text" value="5" maxlength="2" size="3">
-                        </div>
-                        <br>
-                        <div class="block">
-                            Cycles:
-                            <br>
-                            <input id="cyc" type="text" value="3" maxlength="1" size="2">
-                        </div>
-                        <br>
-                        <button id="pombutton" type="button">Start Timer</button>
-                    </div>
-                </div>
-            </div>
-            <div class="flip-container">
-                <div class="flipper">
-                    <div class="fade2 front button square pelko">
-                        <i class="fa fa-bomb fa-5x" aria-hidden="true"></i>
-                        <br> Pelko
-                    </div>
-                    <div class="back">
-                        Random Alarm Between 0 and Length:
-                        <br>
-                        <input id="pelkohh" type="text" value="0" maxlength="2" size="3">:
-                        <input id="pelkomm" type="text" value="00" maxlength="2" size="3">:
-                        <input id="pelkoss" type="text" value="30" maxlength="2" size="3">
-                        <br>
-                        <button id="pelbutton" type="button">Start Timer</button>
-                    </div>
-                </div>
-            </div>
-            <div class="flip-container">
-                <div class="flipper">
-                    <div class="fade3 front button square alarm">
-                        <i class="fa fa-clock-o fa-5x" aria-hidden="true"></i>
-
-
-                        <br> Alarm
-                    </div>
-                    <div class="back">
-                        <div class="block">
-                            Set Future Alarm:
-                            <br>
-                            <input id="alarmhh" type="text" value="8" maxlength="2" size="3"> :
-                            <input id="alarmmm" type="text" value="38" maxlength="2" size="3"> :
-                            <input id="alarmss" type="text" value="59" maxlength="2" size="3">
-                        </div>
-                        <br>
-                        <button id="alarmbutton" type="button">Set Alarm</button>
-                    </div>
-                </div>
-            </div>
-            <div class="flip-container">
-                <div class="flipper">
-                    <div class="fade4 front button square countdown">
-                        <i class="fa fa-undo fa-5x" aria-hidden="true"></i>
-                        <br>Count Down
-                    </div>
-                    <div class="back">
-                        <div class="block">
-                            Countdown Alarm Timer
-                            <br>
-                            <input type="text" value="hh" maxlength="2" size="3"> :
-                            <input type="text" value="mm" maxlength="2" size="3"> :
-                            <input type="text" value="ss" maxlength="2" size="3">
-                        </div>
-                        <br>
-                        <button type="button">Start Timer</button>
-                    </div>
-                </div>
-            </div>
-            <div class="flip-container">
-                <div class="flipper">
-                    <div class="fade5 front button square stopwatch">
-                        <i class="fa fa-history fa-5x fa-flip-horizontal" aria-hidden="true"></i>
-
-                        <br> Stop Watch
-                    </div>
-                    <div class="back">
-                        Timer Starts Instantly
-                        <br>
-                        <button id="swbutton" type="button">Start</button>
-                        <button type="button">Pause</button>
-                        <button type="button">Split</button>
-                        <br>
-                        <button type="button">Reset</button>
-                    </div>
-                </div>
-            </div>
-            <div class="flip-container">
-                <div class="flipper">
-                    <div class="fade5 front button square cal">
-                        <i class="fa fa-calendar fa-5x" aria-hidden="true"></i>
-                        <br> Calendar
-                    </div>
-                    <div class="back">
-                        <i class="fa fa-calendar fa-5x" aria-hidden="true"></i>
-                        <br> Calendar
-                    </div>
-                </div>
-            </div>
-
-            <script>
-                $(document).ready(function () {
-                    $(".fade").hide(0).delay(0).fadeIn(1000);
-                    $(".fade2").hide(0).delay(50).fadeIn(1250);
-                    $(".fade3").hide(0).delay(100).fadeIn(1450);
-                    $(".fade4").hide(0).delay(150).fadeIn(1600);
-                    $(".fade5").hide(0).delay(200).fadeIn(1700);
-
-                    $(".pomodoro").click(function () {
-                        $(".pomodoro").css("background-color", "yellow");
-                    });
-                    $(".pomodoro").mouseout(function () {
-                        $(".pomodoro").css("background-color", "cadetblue");
-                    });
-
-                    $(".pelko").click(function () {
-                        $(".pelko").css("background-color", "yellow");
-                    });
-                    $(".pelko").mouseout(function () {
-                        $(".pelko").css("background-color", "cadetblue");
-                    });
-
-                    $(".alarm").click(function () {
-                        $(".alarm").css("background-color", "yellow");
-                    });
-                    $(".alarm").click(function () {
-                        $(".alarm").css("background-color", "cadetblue");
-                    });
-
-                    $(".countdown").click(function () {
-                        $(".countdown").css("background-color", "yellow");
-                    });
-                    $(".countdown").click(function () {
-                        $(".countdown").css("background-color", "cadetblue");
-                    });
-
-                    $(".stopwatch").click(function () {
-                        $(".stopwatch").css("background-color", "yellow");
-                    });
-                    $(".stopwatch").click(function () {
-                        $(".stopwatch").css("background-color", "cadetblue");
-                    });
-
-                    $(".cal").mouseover(function () {
-                        $(".cal").css("background-color", "yellow");
-                    });
-                    $(".cal").mouseout(function () {
-                        $(".cal").css("background-color", "cadetblue");
-                    });
-                });
-            </script>
-        </div>
-        <div class="overflow center">
-            <div id="chartContainer" style="height: 300px; width: 100%;">
-            </div>
-        </div>
-        <div class="footer center"> F / T / L </div>
-
-        <script>
-            var activeComponent = null;
-
-            function addToDom() {
-                var active = $('#active');
-                active.html(activeComponent.getHtml());
-            };
-
-            function switchComponent(item) {
-                activeComponent = item;
-                addToDom();
-                activeComponent.update();
-            };
-
-
-
-            function Clock() {
-                this.getHtml = function () {
-                    return '<div id="clock" class="jumbo clock"></div><br><div id="todayis" class="message"></div>';
-                };
-                this.update = function () {
-                    var date = moment(new Date).format('h:mm:ss');
-                    $('#clock').html(date);
-                    var todayis = moment(new Date).format('dddd, MMMM Do');
-                    $('#todayis').html(todayis);
-                };
-            };
-
-
-
-            function Pomodoro(workH, workM, workS, breakH, breakM, breakS, cycles) {
-                this.workTime = moment.duration(workH + ":" + workM + ":" + workS);
-                this.breakTime = moment.duration(breakH + ":" + breakM + ":" + breakS);
-                this.cycles = cycles - 1;
-                console.log(this.workTime);
-                console.log(this.breakTime);
-                console.log(this.cycles);
-
-                this.state = 1;
-
-                this.WAITING = 0;
-                this.WORKING = 1;
-                this.BREAKING = 2;
-
-                this.activeTime = moment.duration({
-                    seconds: this.workTime.seconds(),
-                    minutes: this.workTime.minutes(),
-                    hours: this.workTime.hours()
-                });
-
-                this.checkState = function () {
-                    if (this.cycles == 0) {
-                        new Audio('../sound/rugby_ole.mp3').play();
-                        return switchComponent(new Clock);
-                    }
-                    if (this.state == this.WORKING) {
-                        this.state = 2;
-                        new Audio('../sound/rugby_ole.mp3').play();
-                        this.activeTime = moment.duration({
-                            seconds: this.breakTime.seconds(),
-                            minutes: this.breakTime.minutes(),
-                            hours: this.breakTime.hours()
-                        });
-                    } else if (this.state == this.BREAKING) {
-                        this.state = 1;
-                        new Audio('../sound/rugby_ole.mp3').play();
-                        this.cycles = this.cycles - 1;
-                        this.activeTime = moment.duration({
-                            seconds: this.workTime.seconds(),
-                            minutes: this.workTime.minutes(),
-                            hours: this.workTime.hours()
-                        });
-                    } else if (this.state == this.WAITING) {
-                        this.state = 0;
-                        this.activeTime = moment.duration({
-                            seconds: this.workTime.seconds(),
-                            minutes: this.workTime.minutes(),
-                            hours: this.workTime.hours()
-                        });
-                    }
-                };
-
-                this.getHtml = function () {
-                    return '<div id="pomodoro" class="jumbo"></div><br><div id="cycrem" class="message"></div>'
-                };
-
-                this.update = function () {
-                    this.activeTime = this.activeTime.subtract(1, 's');
-                    $('#pomodoro').html(Math.floor(this.activeTime.asHours()) + moment.utc(this.activeTime.asMilliseconds()).format(":mm:ss"));
-                    $('#cycrem').html("You are on " + this.workTime.humanize() + "/" + this.breakTime.humanize() + " cycles with " + this.cycles + " remaining.");
-                    if (this.activeTime <= 0) {
-                        this.checkState();
-                    }
-                };
-            };
-
-            $("#pombutton").click(function () {
-                var pomhh = $("#pomhh").val();
-                var pommm = $("#pommm").val();
-                var pomss = $("#pomss").val();
-                var bhh = $("#bhh").val();
-                var bmm = $("#bmm").val();
-                var bss = $("#bss").val();
-                var cyc = $("#cyc").val();
-                switchComponent(new Pomodoro(pomhh, pommm, pomss, bhh, bmm, bss, cyc));
-            });
-
-
-            function Pelko(bombH, bombM, bombS) {
-                this.bombTime = moment.duration(bombH + ":" + bombM + ":" + bombS);
-
-                this.state = 1;
-
-
-                this.WAITING = 0;
-                this.WORKING = 1;
-
-                this.activeTime = moment.duration({
-                    seconds: this.bombTime.seconds(),
-                    minutes: this.bombTime.minutes(),
-                    hours: this.bombTime.hours()
-                });
-
-                this.alarmTime = moment.duration({
-                    milliseconds: (Math.floor(Math.random() * this.activeTime))
-                });
-
-                this.checkState = function () {
-                    new Audio('../sound/rugby_ole.mp3').play();
-                    return switchComponent(new Clock());
-                };
-
-                this.getHtml = function () {
-                    return '<div id="pelko" class="jumbo"></div><br><div id="counter" class="message"></div>'
-                };
-
-                this.update = function () {
-                    this.activeTime = this.activeTime.subtract(1, 's');
-                    this.alarmTime = this.alarmTime.subtract(1, 's');
-                    $('#pelko').html(Math.floor(this.activeTime.asHours()) + moment.utc(this.activeTime.asMilliseconds()).format(":mm:ss"));
-                    $('#counter').html(Math.floor(this.alarmTime.asHours()) + moment.utc(this.alarmTime.asMilliseconds()).format(":mm:ss"));
-                    if (this.alarmTime <= 1) {
-                        this.checkState();
-                    }
-                };
-            };
-
-            $("#pelbutton").click(function () {
-                var pelkohh = $("#pelkohh").val();
-                var pelkomm = $("#pelkomm").val();
-                var pelkoss = $("#pelkoss").val();
-                switchComponent(new Pelko(pelkohh, pelkomm, pelkoss));
-            });
-
-            function Alarm(alarmH, alarmM, alarmS) {
-                this.alarmTime = moment(alarmH + ":" + alarmM + ":" + alarmS, "hh:mm:SS");
-                this.currentTime = moment();
-                this.startTime = null;
-
-                this.checkAlarm = function () {
-                    if (this.alarmTime < this.currentTime) {
-                        this.startTime = moment().add(1, "d");
-                        console.log("it is, and this works");
-                        console.log(this.startTime);
-
-                    } else {
-                        this.startTime = moment();
-                    }
-                };
-
-                this.checkAlarm();
-
-                this.getHtml = function () {
-                    return '<div id="alarm" class="jumbo"></div><br><div id="message" class="message"></div>'
-                };
-
-                this.update = function () {
-                    this.startTime = moment();
-                    this.activeTime = moment.duration(this.alarmTime.diff(this.startTime));
-                    $('#alarm').html(this.activeTime.hours() + ":" + this.activeTime.minutes() + ":" + this.activeTime.seconds());
-                    $('#message').html(this.activeTime.asHours()) + moment.utc(this.activeTime.asMilliseconds()).format(":mm:ss");
-                };
-
-            };
-
-            $("#alarmbutton").click(function () {
-                var alarmhh = $("#alarmhh").val();
-                var alarmmm = $("#alarmmm").val();
-                var alarmss = $("#alarmss").val();
-                switchComponent(new Alarm(alarmhh, alarmmm, alarmss));
-            });
-
-
-            function Count(bombH, bombM, bombS) {
-                this.bombTime = moment.duration(bombH + ":" + bombM + ":" + bombS);
-
-                this.activeTime = moment.duration({
-                    seconds: this.bombTime.seconds(),
-                    minutes: this.bombTime.minutes(),
-                    hours: this.bombTime.hours()
-                });
-
-                this.getHtml = function () {
-                    return '<div id="pomodoro"></div>'
-                };
-
-                this.update = function () {
-                    this.activeTime = this.activeTime.subtract(1, 's');
-                    this.alarmTime = this.alarmTime.subtract(1, 's');
-                    $('#pomodoro').html(this.activeTime.minutes() + ":" + this.activeTime.seconds());
-                    console.log(this.alarmTime);
-                    if (this.alarmTime < 1) {
-                        this.checkState();
-                    }
-                };
-            };
-
-            $("#countbutton").click(function () {
-                var pelkohh = $("#pelkohh").val();
-                var pelkomm = $("#pelkomm").val();
-                var pelkoss = $("#pelkoss").val();
-                switchComponent(new Pelko(pelkohh, pelkomm, pelkoss));
-            });
-
-
-
-
-            function Stopwatch() {
-                this.activeTime = moment.duration();
-
-
-                this.getHtml = function () {
-                    return '<div id="stopwatch" class="jumbo"></div><br><div id="message" class="message"></div>'
-                };
-
-                this.update = function () {
-                    this.activeTime = this.activeTime.add(1, 's');
-                    $('#stopwatch').html(this.activeTime.hours() + ":" + this.activeTime.minutes() + ":" + this.activeTime.seconds() + ":" + this.activeTime.milliseconds());
-                    $('#stopwatch').html("<button id="
-                        ")
-                        if (this.alarmTime < 1) {
-                            this.checkState();
-                        }
-                    };
-                };
-
-                $("#swbutton").click(function () {
-                    switchComponent(new Stopwatch());
-                });
-
-
-                function Calendar() {
-
-                };
-
-
-                switchComponent(new Clock());
-
-
-                setInterval(function () {
-                    if (!activeComponent) {
-                        return;
-                    }
-
-                    activeComponent.update();
-                }, 1000);
-        </script>
-
-    </div>
+	<div class="cogs menu vertical left" id="menuleft" hidden="true">
+		<div class="cogsheader">
+			<h3>Customize</h3>
+		</div>
+		Income:
+		<br>Gross:
+		<input id="gross" type="text">
+		<br>Hours:
+		<input id="hours" type="text">
+		<br>Rate:
+		<input id="rate" type="text">
+		<br>Net:
+		<input id="net" type="text">
+		<br>Taxes:
+		<input id="taxes" type="text">
+		<br>
+		<br>Housing:
+		<br>Mortgage/Rent:
+		<input id="house" type="text">
+		<br>Insurance:
+		<input id="houseins" type="text">
+		<br>
+		<br>Utilities:
+		<br>Cable/Internet:
+		<input id="cable" type="text">
+		<br>Cellphone:
+		<input id="cell" type="text">
+		<br>Gas/Water/Sewer:
+		<input id="sewer" type="text">
+		<br>
+		<br>Vehicle:
+		<br>Premium:
+		<input id="car" type="text">
+		<br>Insurance:
+		<input id="carins" type="text">
+		<br>Gas/Maintenance:
+		<input id="gas" type="text">
+		<br>
+		<br>Grocery:
+		<input id="food" type="text">
+		<br>
+		<br>Entertainment:
+		<input id="fun" type="text">
+		<br>
+		<br>Savings:
+		<input id="fun" type="text">
+	</div>
+	<div class="menu vertical right" id="menuright" hidden="true">
+		<h3>Links</h3>
+		<h5>This was made using:</h5>
+		<a href="#">Celery seakale</a>
+		<a href="#">Dulse daikon</a>
+		<a href="#">Zucchini garlic</a>
+		<a href="#">Catsear azuki bean</a>
+		<a href="#">Dandelion bunya</a>
+		<a href="#">Rutabaga</a>
+	</div>
+	<div class="container">
+		<div class="row split header">
+			<div id="cogs" class="c-button zfix icons mesqu options left">
+				<i class="zfix fa fa-cogs" aria-hidden="true"></i>
+
+				<script>
+					$(document).ready(function () {
+						$('#cogs').click(function () {
+							$('#menuleft').toggle("slide");
+						});
+					});
+				</script>
+
+			</div>
+			<div id="burger" class="c-button zfix icons mesq menu right">
+				<i class="zfix fa fa-bars" aria - hidden="true"></i>
+
+				<script>
+					$(document).ready(function () {
+						$('#burger').click(function () {
+							$('#menuright').slideToggle("slide");
+						});
+					});
+				</script>
+			</div>
+		</div>
+
+
+
+		<div class="row center time">
+			<div class="clock large">
+				<div id="active"></div>
+			</div>
+			<div class="counter float">03
+			</div>
+		</div>
+		<div class="row center quicks">
+
+			<div class="flip-container">
+				<div class="flipper">
+					<div class="fade front button square pomodoro">
+						<i class="fa fa-dot-circle-o fa-5x" aria-hidden="true"></i>
+
+						<br> Pomodoro
+					</div>
+					<div class="back">
+						<div class="block">
+							Work Length:
+							<br>
+							<input id="pomhh" type="text" value="0" maxlength="2" size="3"> :
+							<input id="pommm" type="text" value="0" maxlength="2" size="3"> :
+							<input id="pomss" type="text" value="10" maxlength="2" size="3">
+						</div>
+						<br>
+						<div class="block">
+							Break Length:
+							<br>
+							<input id="bhh" type="text" value="0" maxlength="2" size="3"> :
+							<input id="bmm" type="text" value="0" maxlength="2" size="3"> :
+							<input id="bss" type="text" value="5" maxlength="2" size="3">
+						</div>
+						<br>
+						<div class="block">
+							Cycles:
+							<br>
+							<input id="cyc" type="text" value="3" maxlength="1" size="2">
+						</div>
+						<br>
+						<button id="pombutton" type="button">Start Timer</button>
+					</div>
+				</div>
+			</div>
+			<div class="flip-container">
+				<div class="flipper">
+					<div class="fade2 front button square pelko">
+						<i class="fa fa-bomb fa-5x" aria-hidden="true"></i>
+						<br> Pelko
+					</div>
+					<div class="back">
+						Random Alarm Between 0 and Length:
+						<br>
+						<input id="pelkohh" type="text" value="0" maxlength="2" size="3">:
+						<input id="pelkomm" type="text" value="00" maxlength="2" size="3">:
+						<input id="pelkoss" type="text" value="30" maxlength="2" size="3">
+						<br>
+						<button id="pelbutton" type="button">Start Timer</button>
+					</div>
+				</div>
+			</div>
+			<div class="flip-container">
+				<div class="flipper">
+					<div class="fade3 front button square alarm">
+						<i class="fa fa-clock-o fa-5x" aria-hidden="true"></i>
+
+
+						<br> Alarm
+					</div>
+					<div class="back">
+						<div class="block">
+							Set Future Alarm:
+							<br>
+							<input id="alarmhh" type="text" value="8" maxlength="2" size="3"> :
+							<input id="alarmmm" type="text" value="38" maxlength="2" size="3"> :
+							<input id="alarmss" type="text" value="59" maxlength="2" size="3">
+						</div>
+						<br>
+						<button id="alarmbutton" type="button">Set Alarm</button>
+					</div>
+				</div>
+			</div>
+			<div class="flip-container">
+				<div class="flipper">
+					<div class="fade4 front button square countdown">
+						<i class="fa fa-undo fa-5x" aria-hidden="true"></i>
+						<br>Count Down
+					</div>
+					<div class="back">
+						<div class="block">
+							Countdown Alarm Timer
+							<br>
+							<input type="text" value="hh" maxlength="2" size="3"> :
+							<input type="text" value="mm" maxlength="2" size="3"> :
+							<input type="text" value="ss" maxlength="2" size="3">
+						</div>
+						<br>
+						<button type="button">Start Timer</button>
+					</div>
+				</div>
+			</div>
+			<div class="flip-container">
+				<div class="flipper">
+					<div class="fade5 front button square stopwatch">
+						<i class="fa fa-history fa-5x fa-flip-horizontal" aria-hidden="true"></i>
+
+						<br> Stop Watch
+					</div>
+					<div class="back">
+						Timer Starts Instantly
+						<br>
+						<button id="swbutton" type="button">Start</button>
+						<button type="button">Pause</button>
+						<button type="button">Split</button>
+						<br>
+						<button type="button">Reset</button>
+					</div>
+				</div>
+			</div>
+			<div class="flip-container">
+				<div class="flipper">
+					<div class="fade5 front button square cal">
+						<i class="fa fa-calendar fa-5x" aria-hidden="true"></i>
+						<br> Calendar
+					</div>
+					<div class="back">
+						<i class="fa fa-calendar fa-5x" aria-hidden="true"></i>
+						<br> Calendar
+					</div>
+				</div>
+			</div>
+
+			<script>
+				$(document).ready(function () {
+					$(".fade").hide(0).delay(0).fadeIn(1000);
+					$(".fade2").hide(0).delay(50).fadeIn(1250);
+					$(".fade3").hide(0).delay(100).fadeIn(1450);
+					$(".fade4").hide(0).delay(150).fadeIn(1600);
+					$(".fade5").hide(0).delay(200).fadeIn(1700);
+
+					$(".pomodoro").click(function () {
+						$(".pomodoro").css("background-color", "yellow");
+					});
+					$(".pomodoro").mouseout(function () {
+						$(".pomodoro").css("background-color", "cadetblue");
+					});
+
+					$(".pelko").click(function () {
+						$(".pelko").css("background-color", "yellow");
+					});
+					$(".pelko").mouseout(function () {
+						$(".pelko").css("background-color", "cadetblue");
+					});
+
+					$(".alarm").click(function () {
+						$(".alarm").css("background-color", "yellow");
+					});
+					$(".alarm").click(function () {
+						$(".alarm").css("background-color", "cadetblue");
+					});
+
+					$(".countdown").click(function () {
+						$(".countdown").css("background-color", "yellow");
+					});
+					$(".countdown").click(function () {
+						$(".countdown").css("background-color", "cadetblue");
+					});
+
+					$(".stopwatch").click(function () {
+						$(".stopwatch").css("background-color", "yellow");
+					});
+					$(".stopwatch").click(function () {
+						$(".stopwatch").css("background-color", "cadetblue");
+					});
+
+					$(".cal").mouseover(function () {
+						$(".cal").css("background-color", "yellow");
+					});
+					$(".cal").mouseout(function () {
+						$(".cal").css("background-color", "cadetblue");
+					});
+				});
+			</script>
+		</div>
+		<div class="calcot center"></div>
+		<div class="footer center"> F / T / L </div>
+
+		<script>
+			var activeComponent = null;
+
+			function addToDom() {
+				var active = $('#active');
+				active.html(activeComponent.getHtml());
+			};
+
+			function switchComponent(item) {
+				activeComponent = item;
+				addToDom();
+				activeComponent.update();
+			};
+
+
+
+			function Clock() {
+				this.getHtml = function () {
+					return '<div id="clock" class="jumbo clock"></div><br><div id="todayis" class="message"></div>';
+				};
+				this.update = function () {
+					var date = moment(new Date).format('h:mm:ss');
+					$('#clock').html(date);
+					var todayis = moment(new Date).format('dddd, MMMM Do');
+					$('#todayis').html(todayis);
+				};
+			};
+
+
+
+			function Pomodoro(workH, workM, workS, breakH, breakM, breakS, cycles) {
+				this.workTime = moment.duration(workH + ":" + workM + ":" + workS);
+				this.breakTime = moment.duration(breakH + ":" + breakM + ":" + breakS);
+				this.cycles = cycles - 1;
+
+				this.state = 1;
+
+				this.WAITING = 0;
+				this.WORKING = 1;
+				this.BREAKING = 2;
+
+				this.activeTime = moment.duration({
+					seconds: this.workTime.seconds(),
+					minutes: this.workTime.minutes(),
+					hours: this.workTime.hours()
+				});
+
+				this.checkState = function () {
+					if (this.cycles == 0) {
+						new Audio('../sound/rugby_ole.mp3').play();
+						return switchComponent(new Clock);
+					}
+					if (this.state == this.WORKING) {
+						this.state = 2;
+						new Audio('../sound/rugby_ole.mp3').play();
+						this.activeTime = moment.duration({
+							seconds: this.breakTime.seconds(),
+							minutes: this.breakTime.minutes(),
+							hours: this.breakTime.hours()
+						});
+					} else if (this.state == this.BREAKING) {
+						this.state = 1;
+						new Audio('../sound/rugby_ole.mp3').play();
+						this.cycles = this.cycles - 1;
+						this.activeTime = moment.duration({
+							seconds: this.workTime.seconds(),
+							minutes: this.workTime.minutes(),
+							hours: this.workTime.hours()
+						});
+					} else if (this.state == this.WAITING) {
+						this.state = 0;
+						this.activeTime = moment.duration({
+							seconds: this.workTime.seconds(),
+							minutes: this.workTime.minutes(),
+							hours: this.workTime.hours()
+						});
+					}
+				};
+
+				this.getHtml = function () {
+					return '<div id="pomodoro" class="jumbo"></div><br><div id="cycrem" class="message"></div>'
+				};
+
+				this.update = function () {
+					this.activeTime = this.activeTime.subtract(1, 's');
+					$('#pomodoro').html(Math.floor(this.activeTime.asHours()) + moment.utc(this.activeTime.asMilliseconds()).format(":mm:ss"));
+					$('#cycrem').html("You are on " + this.workTime.humanize() + "/" + this.breakTime.humanize() + " cycles with " + this.cycles + " remaining.");
+					if (this.activeTime <= 0) {
+						this.checkState();
+					}
+				};
+			};
+
+			$("#pombutton").click(function () {
+				var pomhh = $("#pomhh").val();
+				var pommm = $("#pommm").val();
+				var pomss = $("#pomss").val();
+				var bhh = $("#bhh").val();
+				var bmm = $("#bmm").val();
+				var bss = $("#bss").val();
+				var cyc = $("#cyc").val();
+				switchComponent(new Pomodoro(pomhh, pommm, pomss, bhh, bmm, bss, cyc));
+			});
+
+
+			function Pelko(bombH, bombM, bombS) {
+				this.bombTime = moment.duration(bombH + ":" + bombM + ":" + bombS);
+
+				this.state = 1;
+
+
+				this.WAITING = 0;
+				this.WORKING = 1;
+
+				this.activeTime = moment.duration({
+					seconds: this.bombTime.seconds(),
+					minutes: this.bombTime.minutes(),
+					hours: this.bombTime.hours()
+				});
+
+				this.alarmTime = moment.duration({
+					milliseconds: (Math.floor(Math.random() * this.activeTime))
+				});
+
+				this.checkState = function () {
+					new Audio('../sound/rugby_ole.mp3').play();
+					return switchComponent(new Clock());
+				};
+
+				this.getHtml = function () {
+					return '<div id="pelko" class="jumbo"></div><br><div id="counter" class="message"></div>'
+				};
+
+				this.update = function () {
+					this.activeTime = this.activeTime.subtract(1, 's');
+					this.alarmTime = this.alarmTime.subtract(1, 's');
+					$('#pelko').html(Math.floor(this.activeTime.asHours()) + moment.utc(this.activeTime.asMilliseconds()).format(":mm:ss"));
+					$('#counter').html(Math.floor(this.alarmTime.asHours()) + moment.utc(this.alarmTime.asMilliseconds()).format(":mm:ss"));
+					if (this.alarmTime <= 1) {
+						this.checkState();
+					}
+				};
+			};
+
+			$("#pelbutton").click(function () {
+				var pelkohh = $("#pelkohh").val();
+				var pelkomm = $("#pelkomm").val();
+				var pelkoss = $("#pelkoss").val();
+				switchComponent(new Pelko(pelkohh, pelkomm, pelkoss));
+			});
+
+			function Alarm(alarmH, alarmM, alarmS) {
+				this.alarmTime = moment(alarmH + ":" + alarmM + ":" + alarmS, "hh:mm:SS");
+				this.currentTime = moment();
+				this.startTime = null;
+
+				this.checkAlarm = function () {
+					if (this.alarmTime < this.currentTime) {
+						this.startTime = moment().add(1, "d");
+						console.log("it is, and this works");
+						console.log(this.startTime);
+
+					} else {
+						this.startTime = moment();
+					}
+				};
+
+				this.checkAlarm();
+
+				this.getHtml = function () {
+					return '<div id="alarm" class="jumbo"></div><br><div id="message" class="message"></div>'
+				};
+
+				this.update = function () {
+					this.startTime = moment();
+					this.activeTime = moment.duration(this.alarmTime.diff(this.startTime));
+					$('#alarm').html(this.activeTime.hours() + ":" + this.activeTime.minutes() + ":" + this.activeTime.seconds());
+					$('#message').html(this.activeTime.asHours()) + moment.utc(this.activeTime.asMilliseconds()).format(":mm:ss");
+				};
+
+			};
+
+			$("#alarmbutton").click(function () {
+				var alarmhh = $("#alarmhh").val();
+				var alarmmm = $("#alarmmm").val();
+				var alarmss = $("#alarmss").val();
+				switchComponent(new Alarm(alarmhh, alarmmm, alarmss));
+			});
+
+
+			function Count(bombH, bombM, bombS) {
+				this.bombTime = moment.duration(bombH + ":" + bombM + ":" + bombS);
+
+				this.activeTime = moment.duration({
+					seconds: this.bombTime.seconds(),
+					minutes: this.bombTime.minutes(),
+					hours: this.bombTime.hours()
+				});
+
+				this.getHtml = function () {
+					return '<div id="pomodoro"></div>'
+				};
+
+				this.update = function () {
+					this.activeTime = this.activeTime.subtract(1, 's');
+					this.alarmTime = this.alarmTime.subtract(1, 's');
+					$('#pomodoro').html(this.activeTime.minutes() + ":" + this.activeTime.seconds());
+					console.log(this.alarmTime);
+					if (this.alarmTime < 1) {
+						this.checkState();
+					}
+				};
+			};
+
+			$("#countbutton").click(function () {
+				var pelkohh = $("#pelkohh").val();
+				var pelkomm = $("#pelkomm").val();
+				var pelkoss = $("#pelkoss").val();
+				switchComponent(new Pelko(pelkohh, pelkomm, pelkoss));
+			});
+
+
+
+
+			function Stopwatch() {
+				this.activeTime = moment.duration();
+
+
+				this.getHtml = function () {
+					return '<div id="stopwatch" class="jumbo"></div><br><div id="message" class="message"></div>'
+				};
+
+				this.update = function () {
+					this.activeTime = this.activeTime.add(1, 's');
+					$('#stopwatch').html(this.activeTime.hours() + ":" + this.activeTime.minutes() + ":" + this.activeTime.seconds() + ":" + this.activeTime.milliseconds());
+					$('#message').html("<button id='SWStart'>Start</button><button id='SWStart'>Pause</button><button id='SWStart'>Split</button><button id='SWStart'>Reset</button>")
+					if (this.alarmTime < 1) {
+						this.checkState();
+					}
+				};
+			};
+
+			$("#swbutton").click(function () {
+				switchComponent(new Stopwatch());
+			});
+
+
+			function Calendar() {
+
+			};
+
+
+			switchComponent(new Clock());
+
+
+			setInterval(function () {
+				if (!activeComponent) {
+					return;
+				}
+
+				activeComponent.update();
+			}, 1000);
+		</script>
+
+	</div>
 </body>
 
 
