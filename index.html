@@ -4,6 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Chroknowledge</title>
+	<!-- CSS STYLING AND GOOGLE FONTS -->
 	<link href='https://fonts.googleapis.com/css?family=Yantramanav:400,100' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 
@@ -12,7 +13,7 @@
 	<link rel="stylesheet" href="css/mobile.css">
 
 
-
+	<!-- JAVASCRIPT CDN -->
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/canvasjs/1.7.0/canvasjs.min.js"></script>
@@ -20,6 +21,7 @@
 </head>
 
 <body>
+	<!-- TOP LEFT SETTINGS MENU -->
 	<div class="cogs menu vertical left" id="menuleft" hidden="true">
 		<div class="cogsheader">
 			<h3>Customize</h3>
@@ -67,6 +69,7 @@
 		<br>Savings:
 		<input id="fun" type="text">
 	</div>
+	<!-- TOP RIGHT LINKS MENU -->
 	<div class="menu vertical right" id="menuright" hidden="true">
 		<h3>Links</h3>
 		<h5>This was made using:</h5>
@@ -77,8 +80,11 @@
 		<a href="#">Dandelion bunya</a>
 		<a href="#">Rutabaga</a>
 	</div>
+	<!-- APP CONTAINER -->
 	<div class="container">
 		<div class="row split header">
+			<!-- SETTINGS MENU BUTTON -->
+
 			<div id="cogs" class="c-button zfix icons mesqu options left">
 				<i class="zfix fa fa-cogs" aria-hidden="true"></i>
 
@@ -91,6 +97,7 @@
 				</script>
 
 			</div>
+			<!-- LINKS MENU BUTTON -->
 			<div id="burger" class="c-button zfix icons mesq menu right">
 				<i class="zfix fa fa-bars" aria - hidden="true"></i>
 
@@ -104,7 +111,7 @@
 			</div>
 		</div>
 
-
+		<!-- LARGE TICKER DISPLAY -->
 
 		<div class="row center time">
 			<div class="clock large">
@@ -113,7 +120,12 @@
 			<div class="counter float">03
 			</div>
 		</div>
+
+		<!-- BUTTON DISPLAY -->
+
 		<div class="row center quicks">
+
+			<!-- POMODORO HTML CONTAINER -->
 
 			<div class="flip-container">
 				<div class="flipper">
@@ -149,6 +161,9 @@
 					</div>
 				</div>
 			</div>
+
+			<!-- PELKO HTML CONTAINER -->
+
 			<div class="flip-container">
 				<div class="flipper">
 					<div class="fade2 front button square pelko">
@@ -166,6 +181,9 @@
 					</div>
 				</div>
 			</div>
+
+			<!-- ALARM CLOCK HTML CONTAINER -->
+
 			<div class="flip-container">
 				<div class="flipper">
 					<div class="fade3 front button square alarm">
@@ -187,6 +205,9 @@
 					</div>
 				</div>
 			</div>
+
+			<!-- COUNTDOWN TIMER HTML CONTAINER -->
+
 			<div class="flip-container">
 				<div class="flipper">
 					<div class="fade4 front button square countdown">
@@ -206,6 +227,9 @@
 					</div>
 				</div>
 			</div>
+
+			<!-- STOPWATCH HTML CONTAINER -->
+
 			<div class="flip-container">
 				<div class="flipper">
 					<div class="fade5 front button square stopwatch">
@@ -224,6 +248,9 @@
 					</div>
 				</div>
 			</div>
+
+			<!-- CALENDAR HTML CONTAINER -->
+
 			<div class="flip-container">
 				<div class="flipper">
 					<div class="fade5 front button square cal">
@@ -289,25 +316,35 @@
 				});
 			</script>
 		</div>
+
+		<!-- CALENDAR DISPLAY DIV-->
+
 		<div class="calcot center"></div>
+
+		<!-- FOOTER DISPLAY DIV-->
+
 		<div class="footer center"> F / T / L </div>
 
+		<!-- MAIN HTML JAVASCRIPT-->
+
 		<script>
+			// ACTIVE COMPONENT VARIABLE
 			var activeComponent = null;
 
+			// ADD TO DOM FUNCTION - adds the activeComponent.html to the #active ID tag.
 			function addToDom() {
 				var active = $('#active');
 				active.html(activeComponent.getHtml());
 			};
 
+			// SWITCH BETWEEN ACTIVE COMPONENT FUNCTIONS - changes the active component, adds it to the dom, and then updates activeComponent to the page
 			function switchComponent(item) {
 				activeComponent = item;
 				addToDom();
 				activeComponent.update();
 			};
 
-
-
+			// CLOCK CONSTRUCTOR
 			function Clock() {
 				this.getHtml = function () {
 					return '<div id="clock" class="jumbo clock"></div><br><div id="todayis" class="message"></div>';
@@ -320,30 +357,37 @@
 				};
 			};
 
-
-
+			// POMODORO CONSTRUCTOR - Takes inputs for work H M S and break H M S along with values for the cycle.
 			function Pomodoro(workH, workM, workS, breakH, breakM, breakS, cycles) {
+
+				// MAKE A DURATION WITH INPUT AND SET CYCLES TO 1 LESS THAN NEEDED
 				this.workTime = moment.duration(workH + ":" + workM + ":" + workS);
 				this.breakTime = moment.duration(breakH + ":" + breakM + ":" + breakS);
 				this.cycles = cycles - 1;
 
+				// STATE CONTROLLER VARIABLE
 				this.state = 1;
 
+				// STATE VARIABLES
 				this.WAITING = 0;
 				this.WORKING = 1;
 				this.BREAKING = 2;
 
+				// THIS IS THE STATE THAT IS CURRENTLY ACTIVE IN THE APP
 				this.activeTime = moment.duration({
 					seconds: this.workTime.seconds(),
 					minutes: this.workTime.minutes(),
 					hours: this.workTime.hours()
 				});
 
+				// CHECKS THE STATE AT THE END OF EACH CYCLE.
 				this.checkState = function () {
+					// IF THE CYCLE IS 0, PLAY A SOUND, RETURN TO CLOCK
 					if (this.cycles == 0) {
 						new Audio('../sound/rugby_ole.mp3').play();
 						return switchComponent(new Clock);
 					}
+					// IF THIS STATE = WORKING, SET STATE TO BREAKING, PLAY SOUND, CHANGE ACTIVE TIME VALUE
 					if (this.state == this.WORKING) {
 						this.state = 2;
 						new Audio('../sound/rugby_ole.mp3').play();
@@ -352,6 +396,7 @@
 							minutes: this.breakTime.minutes(),
 							hours: this.breakTime.hours()
 						});
+						// IF THIS STATE = BREAKING, SET STATE TO WORKING, PLAY SOUND, CHANGE ACTIVE TIME VALUE
 					} else if (this.state == this.BREAKING) {
 						this.state = 1;
 						new Audio('../sound/rugby_ole.mp3').play();
@@ -361,6 +406,7 @@
 							minutes: this.workTime.minutes(),
 							hours: this.workTime.hours()
 						});
+						// IF THIS STATE = WAITING, PAUSE CURRENT STATE.
 					} else if (this.state == this.WAITING) {
 						this.state = 0;
 						this.activeTime = moment.duration({
@@ -370,11 +416,11 @@
 						});
 					}
 				};
-
+				// GETHTML RETURNS THE REQUIRED HTML TO DISPLAY TO DOM
 				this.getHtml = function () {
 					return '<div id="pomodoro" class="jumbo"></div><br><div id="cycrem" class="message"></div>'
 				};
-
+				// UPDATE GIVES THE APP THE VALUES THAT NEED TO BE UPDATING CURRENTLY
 				this.update = function () {
 					this.activeTime = this.activeTime.subtract(1, 's');
 					$('#pomodoro').html(Math.floor(this.activeTime.asHours()) + moment.utc(this.activeTime.asMilliseconds()).format(":mm:ss"));
@@ -384,7 +430,7 @@
 					}
 				};
 			};
-
+			// JQUERY INPUT BUTTON TO SAVE VALUES, AND SWITCHCOMPONENTS
 			$("#pombutton").click(function () {
 				var pomhh = $("#pomhh").val();
 				var pommm = $("#pommm").val();
@@ -396,35 +442,38 @@
 				switchComponent(new Pomodoro(pomhh, pommm, pomss, bhh, bmm, bss, cyc));
 			});
 
-
+			// PELKO CONSTRUCTOR
 			function Pelko(bombH, bombM, bombS) {
+				// MAKE A BOMB TIME DURATION WITH INPUT
 				this.bombTime = moment.duration(bombH + ":" + bombM + ":" + bombS);
 
+				// STATE MACHINE SETTINGS
 				this.state = 1;
-
-
 				this.WAITING = 0;
 				this.WORKING = 1;
 
+				// THIS IS THE STATE THAT IS CURRENTLY ACTIVE IN THE APP
 				this.activeTime = moment.duration({
 					seconds: this.bombTime.seconds(),
 					minutes: this.bombTime.minutes(),
 					hours: this.bombTime.hours()
 				});
 
+				// THIS IS HOW THE RANDOM TIMER IS MADE 
 				this.alarmTime = moment.duration({
 					milliseconds: (Math.floor(Math.random() * this.activeTime))
 				});
 
+				// THIS IS THE STATE MACHINE THAT PLAYS SOUNDS, SWITCHES COMPONENT BACK TO CLOCK
 				this.checkState = function () {
 					new Audio('../sound/rugby_ole.mp3').play();
 					return switchComponent(new Clock());
 				};
-
+				// GETHTML RETURNS THE REQUIRED HTML TO DISPLAY TO DOM
 				this.getHtml = function () {
 					return '<div id="pelko" class="jumbo"></div><br><div id="counter" class="message"></div>'
 				};
-
+				// UPDATE GIVES THE APP THE VALUES THAT NEED TO BE UPDATING CURRENTLY
 				this.update = function () {
 					this.activeTime = this.activeTime.subtract(1, 's');
 					this.alarmTime = this.alarmTime.subtract(1, 's');
@@ -435,7 +484,7 @@
 					}
 				};
 			};
-
+			// JQUERY BUTTON TO ACTIVATE THE PELKO BUTTON
 			$("#pelbutton").click(function () {
 				var pelkohh = $("#pelkohh").val();
 				var pelkomm = $("#pelkomm").val();
@@ -443,7 +492,9 @@
 				switchComponent(new Pelko(pelkohh, pelkomm, pelkoss));
 			});
 
+			// ALARM CONSTRUCTOR
 			function Alarm(alarmH, alarmM, alarmS) {
+				// TAKE INPUT OF ALARM TIME AND SET MOMENT EQUAL TO TIMES.
 				this.alarmTime = moment(alarmH + ":" + alarmM + ":" + alarmS, "hh:mm:SS");
 				this.currentTime = moment();
 				this.startTime = null;
@@ -451,6 +502,7 @@
 				this.checkAlarm = function () {
 					if (this.alarmTime < this.currentTime) {
 						this.startTime = moment().add(1, "d");
+						console.log(this.startTime - this.alarmTime);
 						console.log("it is, and this works");
 						console.log(this.startTime);
 
@@ -467,9 +519,14 @@
 
 				this.update = function () {
 					this.startTime = moment();
+
 					this.activeTime = moment.duration(this.alarmTime.diff(this.startTime));
-					$('#alarm').html(this.activeTime.hours() + ":" + this.activeTime.minutes() + ":" + this.activeTime.seconds());
-					$('#message').html(this.activeTime.asHours()) + moment.utc(this.activeTime.asMilliseconds()).format(":mm:ss");
+
+					this.timeofAlarm = this.startTime.diff(this.activeTime);
+
+					$('#alarm').html(this.timeofAlarm);
+
+					$('#message').html(this.activeTime.asHours()) + moment.utc(this.activeTime.asMilliseconds()).format(":mm:ss:SSS");
 				};
 
 			};
@@ -481,7 +538,7 @@
 				switchComponent(new Alarm(alarmhh, alarmmm, alarmss));
 			});
 
-
+			// COUNTDOWN CONSTRUCTOR
 			function Count(bombH, bombM, bombS) {
 				this.bombTime = moment.duration(bombH + ":" + bombM + ":" + bombS);
 
@@ -513,12 +570,9 @@
 				switchComponent(new Pelko(pelkohh, pelkomm, pelkoss));
 			});
 
-
-
-
+			// STOPWATCH CONSTRUCTOR 
 			function Stopwatch() {
 				this.activeTime = moment.duration();
-
 
 				this.getHtml = function () {
 					return '<div id="stopwatch" class="jumbo"></div><br><div id="message" class="message"></div>'
@@ -526,27 +580,28 @@
 
 				this.update = function () {
 					this.activeTime = this.activeTime.add(1, 's');
-					$('#stopwatch').html(this.activeTime.hours() + ":" + this.activeTime.minutes() + ":" + this.activeTime.seconds() + ":" + this.activeTime.milliseconds());
-					$('#message').html("<button id='SWStart'>Start</button><button id='SWStart'>Pause</button><button id='SWStart'>Split</button><button id='SWStart'>Reset</button>")
+					$('#stopwatch').html(this.activeTime.hours() + ":" + this.activeTime.minutes() + ":" + this.activeTime.seconds());
+					$('#message').html("<button id='SWStart'>Start</button><button id='SWStart'>Pause</button><button id='SWStart'>Split</button><button id='SWStart'>Reset</button>");
 					if (this.alarmTime < 1) {
 						this.checkState();
 					}
-				};
+				}
 			};
+
 
 			$("#swbutton").click(function () {
 				switchComponent(new Stopwatch());
 			});
 
-
+			// CALENDAR CONSTRUCTOR
 			function Calendar() {
 
 			};
 
-
+			// LOAD THE CLOCK USING THE SWITCHCOMPONENT
 			switchComponent(new Clock());
 
-
+			// SET INTERVAL ON THE ACTIVECOMPONENT UPDATE
 			setInterval(function () {
 				if (!activeComponent) {
 					return;
