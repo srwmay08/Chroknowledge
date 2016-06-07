@@ -218,12 +218,12 @@
 						<div class="block">
 							Countdown Alarm Timer
 							<br>
-							<input type="text" value="hh" maxlength="2" size="3"> :
-							<input type="text" value="mm" maxlength="2" size="3"> :
-							<input type="text" value="ss" maxlength="2" size="3">
+							<input id="counth" type="text" value="00" maxlength="2" size="3"> :
+							<input id="countm" type="text" value="30" maxlength="2" size="3"> :
+							<input id="counts" type="text" value="00" maxlength="2" size="3">
 						</div>
 						<br>
-						<button type="button">Start Timer</button>
+						<button id="countbutton" type="button">Start Timer</button>
 					</div>
 				</div>
 			</div>
@@ -320,6 +320,27 @@
 		<!-- CALENDAR DISPLAY DIV-->
 
 		<div class="calcot center"></div>
+		<br>
+		<div class="calcot center"></div>
+		<br>
+		<div class="calcot center"></div>
+		<br>
+		<div class="calcot center"></div>
+		<br>
+		<div class="calcot center"></div>
+		<br>
+		<div class="calcot center"></div>
+		<br>
+		<div class="calcot center"></div>
+		<br>
+		<div class="calcot center"></div>
+		<br>
+		<div class="calcot center"></div>
+		<br>
+		<div class="calcot center"></div>
+		<br>
+		<div class="calcot center"></div>
+		<br>
 
 		<!-- FOOTER DISPLAY DIV-->
 
@@ -479,7 +500,7 @@
 					this.alarmTime = this.alarmTime.subtract(1, 's');
 					$('#pelko').html(Math.floor(this.activeTime.asHours()) + moment.utc(this.activeTime.asMilliseconds()).format(":mm:ss"));
 					$('#counter').html(Math.floor(this.alarmTime.asHours()) + moment.utc(this.alarmTime.asMilliseconds()).format(":mm:ss"));
-					if (this.alarmTime <= 1) {
+					if (this.alarmTime <= 0) {
 						this.checkState();
 					}
 				};
@@ -511,19 +532,25 @@
 					}
 				};
 
+				this.checkState = function () {
+					new Audio('../sound/rugby_ole.mp3').play();
+					return switchComponent(new Clock);
+				}
+
 				this.checkAlarm();
 
 				this.getHtml = function () {
-					return '<div id="alarm" class="jumbo"></div><br><div id="message" class="message">The time until your alarm goes off is: <span id="alarmmessage"></span></div>'
+					return '<div id="alarm" class="jumbo"></div><br><div id="message" class="message">Your alarm is set for <span id="alarmmessage"></span></div>'
 				};
 
 				this.update = function () {
 					this.nowTime = moment();
 					this.activeTime = moment.duration(this.thenTime.diff(this.nowTime)).subtract(1, "s");
-
-					$('#alarm').html(this.thenTime.format("HH:mm:ss"));
-
-					$('#alarmmessage').html(Math.floor(this.activeTime.asHours()) + moment.utc(this.activeTime.asMilliseconds()).format(":mm:ss"));
+					$('#alarm').html(Math.floor(this.activeTime.asHours()) + moment.utc(this.activeTime.asMilliseconds()).format(":mm:ss"));
+					$('#alarmmessage').html(this.thenTime.format("HH:mm:ss"));
+					if (this.activeTime <= 0) {
+						this.checkState();
+					}
 				};
 
 			};
@@ -536,25 +563,28 @@
 			});
 
 			// COUNTDOWN CONSTRUCTOR
-			function Count(bombH, bombM, bombS) {
-				this.bombTime = moment.duration(bombH + ":" + bombM + ":" + bombS);
+			function Count(countH, countM, countS) {
+				this.countTime = moment.duration(countH + ":" + countM + ":" + countS);
 
 				this.activeTime = moment.duration({
-					seconds: this.bombTime.seconds(),
-					minutes: this.bombTime.minutes(),
-					hours: this.bombTime.hours()
+					seconds: this.countTime.seconds(),
+					minutes: this.countTime.minutes(),
+					hours: this.countTime.hours()
 				});
 
+				this.checkState = function () {
+					new Audio('../sound/rugby_ole.mp3').play();
+					return switchComponent(new Clock());
+				};
+
 				this.getHtml = function () {
-					return '<div id="pomodoro"></div>'
+					return '<div id="countdown" class="jumbo"></div><br><div id="counter" class="message">Test</div>'
 				};
 
 				this.update = function () {
 					this.activeTime = this.activeTime.subtract(1, 's');
-					this.alarmTime = this.alarmTime.subtract(1, 's');
-					$('#pomodoro').html(this.activeTime.minutes() + ":" + this.activeTime.seconds());
-					console.log(this.alarmTime);
-					if (this.alarmTime < 1) {
+					$('#countdown').html(Math.floor(this.activeTime.asHours()) + moment.utc(this.activeTime.asMilliseconds()).format(":mm:ss"));
+					if (this.activeTime < 0) {
 						this.checkState();
 					}
 				};
@@ -577,7 +607,7 @@
 
 				this.update = function () {
 					this.activeTime = this.activeTime.add(1, 's');
-					$('#stopwatch').html(this.activeTime.hours() + ":" + this.activeTime.minutes() + ":" + this.activeTime.seconds());
+					$('#stopwatch').html(Math.floor(this.activeTime.asHours()) + moment.utc(this.activeTime.asMilliseconds()).format(":mm:ss"));
 					$('#message').html("<button id='SWStart'>Start</button><button id='SWStart'>Pause</button><button id='SWStart'>Split</button><button id='SWStart'>Reset</button>");
 					if (this.alarmTime < 1) {
 						this.checkState();
