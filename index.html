@@ -319,7 +319,23 @@
 
 		<!-- CALENDAR DISPLAY DIV-->
 
-		<div class="calcot center"></div>
+		<div id="thisistoday" class="calcot center">
+			<select id="ddrp1" onchange="(this)">
+				<option value="">Select an option</option>
+				<option value="second">Second</option>
+				<option value="minute">Minute</option>
+				<option value="hour">Hour</option>
+				<option value="day">Day</option>
+				<option value="week">Week</option>
+			</select>
+			<script>
+				$("#ddrp1").on("change", function () {
+					getMonthDateRange(this.value);
+				});
+			</script>
+
+			<div id="ctoday" class="ctoday"></div>
+		</div>
 		<br>
 		<div class="calcot center"></div>
 		<br>
@@ -385,6 +401,7 @@
 				this.workTime = moment.duration(workH + ":" + workM + ":" + workS);
 				this.breakTime = moment.duration(breakH + ":" + breakM + ":" + breakS);
 				this.cycles = cycles - 1;
+				this.start = moment();
 
 				// STATE CONTROLLER VARIABLE
 				this.state = 1;
@@ -401,32 +418,45 @@
 					hours: this.workTime.hours()
 				});
 
+				this.end = moment().add(this.activeTime);
+
+				this.mover = this.start.clone().add(this.activeTime);
+
+				console.log(this.mover);
+
+
+
+				console.log(this.start);
+				console.log(this.end);
+
 				// CHECKS THE STATE AT THE END OF EACH CYCLE.
 				this.checkState = function () {
 					// IF THE CYCLE IS 0, PLAY A SOUND, RETURN TO CLOCK
 					if (this.cycles == 0) {
-						new Audio('../sound/rugby_ole.mp3').play();
+						new Audio('./sound/rugby_ole.mp3').play();
 						return switchComponent(new Clock);
 					}
 					// IF THIS STATE = WORKING, SET STATE TO BREAKING, PLAY SOUND, CHANGE ACTIVE TIME VALUE
 					if (this.state == this.WORKING) {
 						this.state = 2;
-						new Audio('../sound/rugby_ole.mp3').play();
+						new Audio('./sound/rugby_ole.mp3').play();
 						this.activeTime = moment.duration({
 							seconds: this.breakTime.seconds(),
 							minutes: this.breakTime.minutes(),
 							hours: this.breakTime.hours()
 						});
+						this.end = moment().add(this.activeTime);
 						// IF THIS STATE = BREAKING, SET STATE TO WORKING, PLAY SOUND, CHANGE ACTIVE TIME VALUE
 					} else if (this.state == this.BREAKING) {
 						this.state = 1;
-						new Audio('../sound/rugby_ole.mp3').play();
+						new Audio('./sound/rugby_ole.mp3').play();
 						this.cycles = this.cycles - 1;
 						this.activeTime = moment.duration({
 							seconds: this.workTime.seconds(),
 							minutes: this.workTime.minutes(),
 							hours: this.workTime.hours()
 						});
+						this.end = moment().add(this.activeTime);
 						// IF THIS STATE = WAITING, PAUSE CURRENT STATE.
 					} else if (this.state == this.WAITING) {
 						this.state = 0;
@@ -443,6 +473,8 @@
 				};
 				// UPDATE GIVES THE APP THE VALUES THAT NEED TO BE UPDATING CURRENTLY
 				this.update = function () {
+					console.log(this.start);
+					console.log(this.end);
 					this.activeTime = this.activeTime.subtract(1, 's');
 					$('#pomodoro').html(Math.floor(this.activeTime.asHours()) + moment.utc(this.activeTime.asMilliseconds()).format(":mm:ss"));
 					$('#cycrem').html("You are on " + this.workTime.humanize() + "/" + this.breakTime.humanize() + " cycles with " + this.cycles + " remaining.");
@@ -487,7 +519,7 @@
 
 				// THIS IS THE STATE MACHINE THAT PLAYS SOUNDS, SWITCHES COMPONENT BACK TO CLOCK
 				this.checkState = function () {
-					new Audio('../sound/rugby_ole.mp3').play();
+					new Audio('./sound/rugby_ole.mp3').play();
 					return switchComponent(new Clock());
 				};
 				// GETHTML RETURNS THE REQUIRED HTML TO DISPLAY TO DOM
@@ -533,7 +565,7 @@
 				};
 
 				this.checkState = function () {
-					new Audio('../sound/rugby_ole.mp3').play();
+					new Audio('./sound/rugby_ole.mp3').play();
 					return switchComponent(new Clock);
 				}
 
@@ -573,7 +605,7 @@
 				});
 
 				this.checkState = function () {
-					new Audio('../sound/rugby_ole.mp3').play();
+					new Audio('./sound/rugby_ole.mp3').play();
 					return switchComponent(new Clock());
 				};
 
@@ -636,6 +668,24 @@
 
 				activeComponent.update();
 			}, 1000);
+
+			function getMonthDateRange(input) {
+				var start = moment().startOf(input); // set to 12:00 am today
+				var end = moment().endOf(input); // set to 23:59 pm today
+				var now = moment();
+
+				var past = now.diff(start);
+				var future = end.diff(now);
+
+				var total = past + future;
+
+				var pastwidth = ((past / total) * 100);
+
+				document.getElementById("ctoday").style.width = pastwidth + "%";
+
+			}
+
+			setInterval(getMonthDateRange, (1000 / 60));
 		</script>
 
 	</div>

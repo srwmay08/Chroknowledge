@@ -81,6 +81,7 @@ TEAL: #008E97 GOLD: #F58220 DARK: #005778 */
 .quicks {
 	display: flex;
 	padding-bottom: 15%;
+	margin-bottom: 10%;
 	width: 55%;
 	margin: auto;
 }
@@ -90,6 +91,8 @@ TEAL: #008E97 GOLD: #F58220 DARK: #005778 */
 	background-color: black;
 	height: 18vh;
 	margin: auto;
+	z-index: -1px;
+	margin-top: 5%;
 }
 
 .button {
@@ -271,4 +274,11 @@ TEAL: #008E97 GOLD: #F58220 DARK: #005778 */
 	-moz-transform: rotateY( 180deg);
 	-o-transform: rotateY( 180deg);
 	transform: rotateY( 180deg);
+}
+
+.ctoday {
+	position: relative;
+	width: 14.28%;
+	height: 100%;
+	background-color: indianred;
 }
