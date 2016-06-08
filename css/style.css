@@ -80,8 +80,8 @@ TEAL: #008E97 GOLD: #F58220 DARK: #005778 */
 
 .quicks {
     display: flex;
-    padding-bottom: 15%;
-    margin-bottom: 10%;
+    padding-bottom: 4%;
+    margin-bottom: 4%;
     width: 55%;
     margin: auto;
 }
@@ -93,7 +93,8 @@ TEAL: #008E97 GOLD: #F58220 DARK: #005778 */
     margin: auto;
     z-index: -1px;
     margin-top: 5%;
-    padding: 0.5%;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
 }
 
 .button {
@@ -138,13 +139,31 @@ TEAL: #008E97 GOLD: #F58220 DARK: #005778 */
     margin: 5%;
 }
 
-// FLIPPER 
+.ctoday {
+    position: relative;
+    height: 100%;
+    background-color: #A0615F;
+}
 
-/* entire container, keeps perspective */
+.cday {
+    height: 100%;
+    width: 14.28%;
+    color: rebeccapurple;
+}
 
-.flip-container {
+* entire container,
+keeps perspective */ .flip-container {
     perspective: 1000px;
-    width: 20%;
+}
+
+* entire container,
+keeps perspective */ .flip-container {
+    perspective: 1000px;
+}
+
+h4 {
+    margin-top: 17vh;
+    z-index: 1;
 }
 
 
@@ -159,16 +178,16 @@ TEAL: #008E97 GOLD: #F58220 DARK: #005778 */
 .front,
 .back {
     width: 100%;
+    height: 18vh;
 }
 
 
 /* flip speed goes here */
 
 .flipper {
-    transition: 0.6s linear all;
+    transition: 0.6s;
     transform-style: preserve-3d;
     position: relative;
-    width: inherit;
 }
 
 
@@ -186,7 +205,7 @@ TEAL: #008E97 GOLD: #F58220 DARK: #005778 */
 /* front pane, placed above back */
 
 .front {
-    z-index: 2;
+    z-index: -1;
     /* for firefox 31 */
     transform: rotateY(0deg);
 }
@@ -196,95 +215,4 @@ TEAL: #008E97 GOLD: #F58220 DARK: #005778 */
 
 .back {
     transform: rotateY(180deg);
-}
-
-.vertical.flip-container {
-    position: relative;
-}
-
-.vertical .back {
-    transform: rotateX(180deg);
-}
-
-.vertical.flip-container .flipper {
-    transform-origin: 100% 213.5px;
-    /* half of height */
-}
-
-.vertical.flip-container:hover .flipper {
-    transform: rotateX(-180deg);
-}
-
-// TEST FLIPPER
-.container {
-    width: 200px;
-    height: 260px;
-    position: relative;
-    border: 1px solid #ccc;
-    -webkit-perspective: 800px;
-    -moz-perspective: 800px;
-    -o-perspective: 800px;
-    perspective: 800px;
-}
-
-.card {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    -webkit-transition: -webkit-transform 1s;
-    -moz-transition: -moz-transform 1s;
-    -o-transition: -o-transform 1s;
-    transition: transform 1s;
-    -webkit-transform-style: preserve-3d;
-    -moz-transform-style: preserve-3d;
-    -o-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-    -webkit-transform-origin: 50% 50%;
-}
-
-.card div {
-    display: block;
-    height: 100%;
-    width: 100%;
-    line-height: 260px;
-    color: white;
-    text-align: center;
-    font-weight: bold;
-    font-size: 140px;
-    position: absolute;
-    -webkit-backface-visibility: hidden;
-    -moz-backface-visibility: hidden;
-    -o-backface-visibility: hidden;
-    backface-visibility: hidden;
-}
-
-.card .front {
-    background: red;
-}
-
-.card .back {
-    background: blue;
-    -webkit-transform: rotateY( 180deg);
-    -moz-transform: rotateY( 180deg);
-    -o-transform: rotateY( 180deg);
-    transform: rotateY( 180deg);
-}
-
-.card.flipped {
-    -webkit-transform: rotateY( 180deg);
-    -moz-transform: rotateY( 180deg);
-    -o-transform: rotateY( 180deg);
-    transform: rotateY( 180deg);
-}
-
-.ctoday {
-    position: relative;
-    height: 100%;
-    background-color: indianred;
-}
-
-.cday {
-    height: 100%;
-    width: 14.28%;
-    color: rebeccapurple;
 }

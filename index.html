@@ -124,24 +124,24 @@
                 <div class="flipper">
                     <div class="fade front button square pomodoro">
                         <i class="fa fa-dot-circle-o fa-5x" aria-hidden="true"></i>
+                        <br>
 
-                        <br> Pomodoro
                     </div>
                     <div class="back">
                         <div class="block">
                             Work Length:
                             <br>
-                            <input id="pomhh" type="text" value="0" maxlength="2" size="3"> :
-                            <input id="pommm" type="text" value="0" maxlength="2" size="3"> :
-                            <input id="pomss" type="text" value="10" maxlength="2" size="3">
+                            <input id="pomhh" type="text" value="0" maxlength="2" size="2"> :
+                            <input id="pommm" type="text" value="0" maxlength="2" size="2"> :
+                            <input id="pomss" type="text" value="10" maxlength="2" size="2">
                         </div>
                         <br>
                         <div class="block">
                             Break Length:
                             <br>
-                            <input id="bhh" type="text" value="0" maxlength="2" size="3"> :
-                            <input id="bmm" type="text" value="0" maxlength="2" size="3"> :
-                            <input id="bss" type="text" value="5" maxlength="2" size="3">
+                            <input id="bhh" type="text" value="0" maxlength="2" size="2"> :
+                            <input id="bmm" type="text" value="0" maxlength="2" size="2"> :
+                            <input id="bss" type="text" value="5" maxlength="2" size="2">
                         </div>
                         <br>
                         <div class="block">
@@ -153,6 +153,7 @@
                         <button id="pombutton" type="button">Start Timer</button>
                     </div>
                 </div>
+                <h4>Pomodoro</h4>
             </div>
 
             <!-- PELKO HTML CONTAINER -->
@@ -161,18 +162,18 @@
                 <div class="flipper">
                     <div class="fade2 front button square pelko">
                         <i class="fa fa-bomb fa-5x" aria-hidden="true"></i>
-                        <br> Pelko
                     </div>
                     <div class="back">
                         Random Alarm Between 0 and Length:
                         <br>
-                        <input id="pelkohh" type="text" value="0" maxlength="2" size="3">:
-                        <input id="pelkomm" type="text" value="00" maxlength="2" size="3">:
-                        <input id="pelkoss" type="text" value="30" maxlength="2" size="3">
+                        <input id="pelkohh" type="text" value="0" maxlength="2" size="2">:
+                        <input id="pelkomm" type="text" value="00" maxlength="2" size="2">:
+                        <input id="pelkoss" type="text" value="30" maxlength="2" size="2">
                         <br>
                         <button id="pelbutton" type="button">Start Timer</button>
                     </div>
                 </div>
+                <h4>Pelko</h4>
             </div>
 
             <!-- ALARM CLOCK HTML CONTAINER -->
@@ -181,45 +182,50 @@
                 <div class="flipper">
                     <div class="fade3 front button square alarm">
                         <i class="fa fa-clock-o fa-5x" aria-hidden="true"></i>
-
-
-                        <br> Alarm
                     </div>
                     <div class="back">
                         <div class="block">
                             Set Future Alarm:
                             <br>
-                            <input id="alarmhh" type="text" value="8" maxlength="2" size="3"> :
-                            <input id="alarmmm" type="text" value="38" maxlength="2" size="3"> :
-                            <input id="alarmss" type="text" value="59" maxlength="2" size="3">
+                            <input id="alarmhh" type="text" value="8" maxlength="2" size="2"> :
+                            <input id="alarmmm" type="text" value="38" maxlength="2" size="2"> :
+                            <input id="alarmss" type="text" value="59" maxlength="2" size="2">
                         </div>
                         <br>
                         <button id="alarmbutton" type="button">Set Alarm</button>
                     </div>
                 </div>
+                <h4>Alarm Clock</h4>
             </div>
 
             <!-- COUNTDOWN TIMER HTML CONTAINER -->
 
             <div class="flip-container">
                 <div class="flipper">
-                    <div class="fade4 front button square countdown">
+                    <div class="front fade4 button square countdown">
                         <i class="fa fa-undo fa-5x" aria-hidden="true"></i>
-                        <br>Count Down
+
                     </div>
                     <div class="back">
                         <div class="block">
-                            Countdown Alarm Timer
+                            Count Down Alarm Timer
                             <br>
-                            <input id="counth" type="text" value="00" maxlength="2" size="3"> :
-                            <input id="countm" type="text" value="30" maxlength="2" size="3"> :
-                            <input id="counts" type="text" value="00" maxlength="2" size="3">
+                            <input id="counth" type="text" value="00" maxlength="2" size="2"> :
+                            <input id="countm" type="text" value="30" maxlength="2" size="2"> :
+                            <input id="counts" type="text" value="00" maxlength="2" size="2">
                         </div>
                         <br>
                         <button id="countbutton" type="button">Start Timer</button>
                     </div>
                 </div>
+
+                <h4>Count Down</h4>
             </div>
+            <script>
+                function flip() {
+                    $('.card').toggleClass('flipped');
+                }
+            </script>
 
             <!-- STOPWATCH HTML CONTAINER -->
 
@@ -227,8 +233,6 @@
                 <div class="flipper">
                     <div class="fade5 front button square stopwatch">
                         <i class="fa fa-history fa-5x fa-flip-horizontal" aria-hidden="true"></i>
-
-                        <br> Stop Watch
                     </div>
                     <div class="back">
                         Timer Starts Instantly
@@ -240,6 +244,7 @@
                         <button type="button">Reset</button>
                     </div>
                 </div>
+                <h4>Stop Watch</h4>
             </div>
 
             <!-- CALENDAR HTML CONTAINER -->
@@ -248,13 +253,13 @@
                 <div class="flipper">
                     <div class="fade5 front button square cal">
                         <i class="fa fa-calendar fa-5x" aria-hidden="true"></i>
-                        <br> Calendar
                     </div>
                     <div class="back">
                         <i class="fa fa-calendar fa-5x" aria-hidden="true"></i>
                         <br> Calendar
                     </div>
                 </div>
+                <h4>Calendar</h4>
             </div>
 
             <script>
@@ -391,7 +396,7 @@
                     this.future = this.end.diff(this.now);
                     this.total = this.past + this.future;
 
-                    this.pastwidth = ((this.past / this.total) * 101);
+                    this.pastwidth = ((this.past / this.total) * 100);
                     document.getElementById("ctoday").style.width = this.pastwidth + "%";
 
                 };
