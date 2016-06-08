@@ -2,718 +2,954 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Chroknowledge</title>
-    <!-- CSS STYLING AND GOOGLE FONTS -->
-    <link href='https://fonts.googleapis.com/css?family=Yantramanav:400,100' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+	<meta charset="UTF-8">
+	<title>Chroknowledge</title>
+	<!-- CSS STYLING AND GOOGLE FONTS -->
+	<link href='https://fonts.googleapis.com/css?family=Yantramanav:400,100' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 
-    <link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/style.css">
 
-    <link rel="stylesheet" href="css/mobile.css">
+	<link rel="stylesheet" href="css/mobile.css">
 
 
-    <!-- JAVASCRIPT CDN -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/canvasjs/1.7.0/canvasjs.min.js"></script>
+	<!-- JAVASCRIPT CDN -->
 
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/canvasjs/1.7.0/canvasjs.min.js"></script>
+	<script src="https://code.jquery.com/color/jquery.color-2.1.2.min.js" integrity="sha256-H28SdxWrZ387Ldn0qogCzFiUDDxfPiNIyJX7BECQkDE=" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <!-- TOP LEFT SETTINGS MENU -->
-    <div class="cogs menu vertical left" id="menuleft" hidden="true">
-        <div class="cogsheader">
-            <h3>Customize</h3>
-        </div>
-        Income:
-        <br>Gross:
-        <input id="gross" type="text">
-        <br>Hours:
-        <input id="hours" type="text">
-        <br>Rate:
-        <input id="rate" type="text">
-        <br>Net:
-        <input id="net" type="text">
-        <br>Taxes:
-        <input id="taxes" type="text">
-        <br>
-        <br>Housing:
-        <br>Mortgage/Rent:
-        <input id="house" type="text">
-        <br>Insurance:
-        <input id="houseins" type="text">
-        <br>
-        <br>Utilities:
-        <br>Cable/Internet:
-        <input id="cable" type="text">
-        <br>Cellphone:
-        <input id="cell" type="text">
-        <br>Gas/Water/Sewer:
-        <input id="sewer" type="text">
-        <br>
-        <br>Vehicle:
-        <br>Premium:
-        <input id="car" type="text">
-        <br>Insurance:
-        <input id="carins" type="text">
-        <br>Gas/Maintenance:
-        <input id="gas" type="text">
-        <br>
-        <br>Grocery:
-        <input id="food" type="text">
-        <br>
-        <br>Entertainment:
-        <input id="fun" type="text">
-        <br>
-        <br>Savings:
-        <input id="fun" type="text">
-    </div>
-    <!-- TOP RIGHT LINKS MENU -->
-    <div class="menu vertical right" id="menuright" hidden="true">
-        <h3>About</h3>
-    </div>
-    <!-- APP CONTAINER -->
-    <div class="container">
-        <div class="row split header">
-            <!-- SETTINGS MENU BUTTON -->
-
-            <div id="cogs" class="c-button zfix icons mesqu options left">
-                <i class="zfix fa fa-cogs" aria-hidden="true"></i>
-
-                <script>
-                    $(document).ready(function () {
-                        $('#cogs').click(function () {
-                            $('#menuleft').toggle("slide");
-                        });
-                    });
-                </script>
-
-            </div>
-            <!-- LINKS MENU BUTTON -->
-            <div id="burger" class="c-button zfix icons mesq menu right">
-                <i class="zfix fa fa-bars" aria - hidden="true"></i>
-
-                <script>
-                    $(document).ready(function () {
-                        $('#burger').click(function () {
-                            $('#menuright').slideToggle("slide");
-                        });
-                    });
-                </script>
-            </div>
-        </div>
-
-        <!-- LARGE TICKER DISPLAY -->
-
-        <div class="row center time">
-            <div class="clock large">
-                <div id="active"></div>
-            </div>
-            <div class="counter float">03
-            </div>
-        </div>
-
-        <!-- BUTTON DISPLAY -->
-
-        <div class="row center quicks">
-
-            <!-- POMODORO HTML CONTAINER -->
-
-            <div class="flip-container">
-                <div class="flipper">
-                    <div class="fade front button square pomodoro">
-                        <i class="fa fa-dot-circle-o fa-5x" aria-hidden="true"></i>
-                        <br>
-
-                    </div>
-                    <div class="back">
-                        <div class="block">
-                            Work Length:
-                            <br>
-                            <input id="pomhh" type="text" value="0" maxlength="2" size="2"> :
-                            <input id="pommm" type="text" value="0" maxlength="2" size="2"> :
-                            <input id="pomss" type="text" value="10" maxlength="2" size="2">
-                        </div>
-                        <br>
-                        <div class="block">
-                            Break Length:
-                            <br>
-                            <input id="bhh" type="text" value="0" maxlength="2" size="2"> :
-                            <input id="bmm" type="text" value="0" maxlength="2" size="2"> :
-                            <input id="bss" type="text" value="5" maxlength="2" size="2">
-                        </div>
-                        <br>
-                        <div class="block">
-                            Cycles:
-                            <br>
-                            <input id="cyc" type="text" value="3" maxlength="1" size="2">
-                        </div>
-                        <br>
-                        <button id="pombutton" type="button">Start Timer</button>
-                    </div>
-                </div>
-                <h4>Pomodoro</h4>
-            </div>
-
-            <!-- PELKO HTML CONTAINER -->
-
-            <div class="flip-container">
-                <div class="flipper">
-                    <div class="fade2 front button square pelko">
-                        <i class="fa fa-bomb fa-5x" aria-hidden="true"></i>
-                    </div>
-                    <div class="back">
-                        Random Alarm Between 0 and Length:
-                        <br>
-                        <input id="pelkohh" type="text" value="0" maxlength="2" size="2">:
-                        <input id="pelkomm" type="text" value="00" maxlength="2" size="2">:
-                        <input id="pelkoss" type="text" value="30" maxlength="2" size="2">
-                        <br>
-                        <button id="pelbutton" type="button">Start Timer</button>
-                    </div>
-                </div>
-                <h4>Pelko</h4>
-            </div>
-
-            <!-- ALARM CLOCK HTML CONTAINER -->
-
-            <div class="flip-container">
-                <div class="flipper">
-                    <div class="fade3 front button square alarm">
-                        <i class="fa fa-clock-o fa-5x" aria-hidden="true"></i>
-                    </div>
-                    <div class="back">
-                        <div class="block">
-                            Set Future Alarm:
-                            <br>
-                            <input id="alarmhh" type="text" value="8" maxlength="2" size="2"> :
-                            <input id="alarmmm" type="text" value="38" maxlength="2" size="2"> :
-                            <input id="alarmss" type="text" value="59" maxlength="2" size="2">
-                        </div>
-                        <br>
-                        <button id="alarmbutton" type="button">Set Alarm</button>
-                    </div>
-                </div>
-                <h4>Alarm Clock</h4>
-            </div>
-
-            <!-- COUNTDOWN TIMER HTML CONTAINER -->
-
-            <div class="flip-container">
-                <div class="flipper">
-                    <div class="front fade4 button square countdown">
-                        <i class="fa fa-undo fa-5x" aria-hidden="true"></i>
-
-                    </div>
-                    <div class="back">
-                        <div class="block">
-                            Count Down Alarm Timer
-                            <br>
-                            <input id="counth" type="text" value="00" maxlength="2" size="2"> :
-                            <input id="countm" type="text" value="30" maxlength="2" size="2"> :
-                            <input id="counts" type="text" value="00" maxlength="2" size="2">
-                        </div>
-                        <br>
-                        <button id="countbutton" type="button">Start Timer</button>
-                    </div>
-                </div>
-
-                <h4>Count Down</h4>
-            </div>
-            <script>
-                function flip() {
-                    $('.card').toggleClass('flipped');
-                }
-            </script>
-
-            <!-- STOPWATCH HTML CONTAINER -->
-
-            <div class="flip-container">
-                <div class="flipper">
-                    <div class="fade5 front button square stopwatch">
-                        <i class="fa fa-history fa-5x fa-flip-horizontal" aria-hidden="true"></i>
-                    </div>
-                    <div class="back">
-                        Timer Starts Instantly
-                        <br>
-                        <button id="swbutton" type="button">Start</button>
-                        <button type="button">Pause</button>
-                        <button type="button">Split</button>
-                        <br>
-                        <button type="button">Reset</button>
-                    </div>
-                </div>
-                <h4>Stop Watch</h4>
-            </div>
-
-            <!-- CALENDAR HTML CONTAINER -->
-
-            <div class="flip-container">
-                <div class="flipper">
-                    <div class="fade5 front button square cal">
-                        <i class="fa fa-calendar fa-5x" aria-hidden="true"></i>
-                    </div>
-                    <div class="back">
-                        <i class="fa fa-calendar fa-5x" aria-hidden="true"></i>
-                        <br> Calendar
-                    </div>
-                </div>
-                <h4>Calendar</h4>
-            </div>
-
-            <script>
-                $(document).ready(function () {
-                    $(".fade").hide(0).delay(0).fadeIn(1000);
-                    $(".fade2").hide(0).delay(50).fadeIn(1250);
-                    $(".fade3").hide(0).delay(100).fadeIn(1450);
-                    $(".fade4").hide(0).delay(150).fadeIn(1600);
-                    $(".fade5").hide(0).delay(200).fadeIn(1700);
-
-                    $(".pomodoro").click(function () {
-                        $(".pomodoro").css("background-color", "yellow");
-                    });
-                    $(".pomodoro").mouseout(function () {
-                        $(".pomodoro").css("background-color", "cadetblue");
-                    });
-
-                    $(".pelko").click(function () {
-                        $(".pelko").css("background-color", "yellow");
-                    });
-                    $(".pelko").mouseout(function () {
-                        $(".pelko").css("background-color", "cadetblue");
-                    });
-
-                    $(".alarm").click(function () {
-                        $(".alarm").css("background-color", "yellow");
-                    });
-                    $(".alarm").click(function () {
-                        $(".alarm").css("background-color", "cadetblue");
-                    });
-
-                    $(".countdown").click(function () {
-                        $(".countdown").css("background-color", "yellow");
-                    });
-                    $(".countdown").click(function () {
-                        $(".countdown").css("background-color", "cadetblue");
-                    });
-
-                    $(".stopwatch").click(function () {
-                        $(".stopwatch").css("background-color", "yellow");
-                    });
-                    $(".stopwatch").click(function () {
-                        $(".stopwatch").css("background-color", "cadetblue");
-                    });
-
-                    $(".cal").mouseover(function () {
-                        $(".cal").css("background-color", "yellow");
-                    });
-                    $(".cal").mouseout(function () {
-                        $(".cal").css("background-color", "cadetblue");
-                    });
-                });
-            </script>
-        </div>
-
-        <!-- CALENDAR DISPLAY DIV-->
-        <div class="row center">
-            <div id="calbar"></div>
-        </div>
-
-
-        <!-- FOOTER DISPLAY DIV-->
-
-        <div class="footer center"> F / T / L </div>
-
-        <!-- MAIN HTML JAVASCRIPT-->
-
-        <script>
-            // ACTIVE COMPONENT VARIABLE
-            var activeComponent = null;
-            var activeCalendar = null;
-
-
-
-            // ADD TO DOM FUNCTION - adds the activeComponent.html to the #active ID tag.
-            function addToDom() {
-                var active = $('#active');
-                active.html(activeComponent.getHtml());
-            };
-
-            function calToDom() {
-                var calendaractive = $('#calbar');
-                calendaractive.html(activeCalendar.getHtml());
-            };
-
-            // SWITCH BETWEEN ACTIVE COMPONENT FUNCTIONS - changes the active component, adds it to the dom, and then updates activeComponent to the page
-            function switchComponent(item) {
-                activeComponent = item;
-                addToDom();
-                activeComponent.update();
-            };
-
-            function switchCalendar(item) {
-                activeCalendar = item;
-                calToDom();
-                activeCalendar.update();
-            };
-
-            // CALENDAR CONSTRUCTOR GROUP
-
-            function Today() {
-                this.getHtml = function () {
-                    return '<div class="calcot center"><div id="cday" class="cday"></div></div>'
-                };
-
-                this.update = function () {
-                    this.now = moment().format("MMMM Do");
-                    $('Today').html(this.now);
-                };
-            }
-
-
-            function Calendar() {
-                this.start = moment().startOf("minute"); // set to 12:00 am today
-                this.end = moment().endOf("minute"); // set to 23:59 pm today
-                this.now = moment();
-
-                this.past = this.now.diff(this.start);
-                this.future = this.end.diff(this.now);
-                this.total = this.past + this.future;
-
-                this.pastwidth = null;
-
-                this.getHtml = function () {
-                    return '<div class="calcot center"><div id="ctoday" class="ctoday"></div></div>'
-                };
-
-                this.update = function () {
-                    this.start = moment().startOf("minute");
-                    this.end = moment().endOf("minute");
-                    this.now = moment();
-
-                    this.past = this.now.diff(this.start);
-                    this.future = this.end.diff(this.now);
-                    this.total = this.past + this.future;
-
-                    this.pastwidth = ((this.past / this.total) * 100);
-                    document.getElementById("ctoday").style.width = this.pastwidth + "%";
-
-                };
-
-                //              var start = moment().startOf(input); // set to 12:00 am today
-                //				var end = moment().endOf(input); // set to 23:59 pm today
-                //				var now = moment();
-                //
-                //				var past = now.diff(start);
-                //				var future = end.diff(now);
-                //
-                //				var total = past + future;
-                //
-                //				var pastwidth = ((past / total) * 100);
-                //
-                //				document.getElementById("ctoday").style.width = pastwidth + "%";
-
-            };
-
-            // CLOCK CONSTRUCTOR
-            function Clock() {
-                this.getHtml = function () {
-                    return '<div id="clock" class="jumbo clock"></div><br><div id="todayis" class="message"></div>';
-                };
-                this.update = function () {
-                    var date = moment(new Date).format('h:mm:ss');
-                    $('#clock').html(date);
-                    var todayis = moment(new Date).format('dddd, MMMM Do');
-                    $('#todayis').html(todayis);
-                };
-            };
-
-            // POMODORO CONSTRUCTOR - Takes inputs for work H M S and break H M S along with values for the cycle.
-            function Pomodoro(workH, workM, workS, breakH, breakM, breakS, cycles) {
-
-                // MAKE A DURATION WITH INPUT AND SET CYCLES TO 1 LESS THAN NEEDED
-                this.workTime = moment.duration(workH + ":" + workM + ":" + workS);
-                this.breakTime = moment.duration(breakH + ":" + breakM + ":" + breakS);
-                this.cycles = cycles - 1;
-                this.start = moment();
-
-                // STATE CONTROLLER VARIABLE
-                this.state = 1;
-
-                // STATE VARIABLES
-                this.WAITING = 0;
-                this.WORKING = 1;
-                this.BREAKING = 2;
-
-                // THIS IS THE STATE THAT IS CURRENTLY ACTIVE IN THE APP
-                this.activeTime = moment.duration({
-                    seconds: this.workTime.seconds(),
-                    minutes: this.workTime.minutes(),
-                    hours: this.workTime.hours()
-                });
-
-                this.end = moment().add(this.activeTime);
-
-                this.mover = this.start.clone().add(this.activeTime);
-
-                console.log(this.mover);
-
-
-
-                console.log(this.start);
-                console.log(this.end);
-
-                // CHECKS THE STATE AT THE END OF EACH CYCLE.
-                this.checkState = function () {
-                    // IF THE CYCLE IS 0, PLAY A SOUND, RETURN TO CLOCK
-                    if (this.cycles == 0) {
-                        new Audio('./sound/rugby_ole.mp3').play();
-                        return switchComponent(new Clock);
-                    }
-                    // IF THIS STATE = WORKING, SET STATE TO BREAKING, PLAY SOUND, CHANGE ACTIVE TIME VALUE
-                    if (this.state == this.WORKING) {
-                        this.state = 2;
-                        new Audio('./sound/rugby_ole.mp3').play();
-                        this.activeTime = moment.duration({
-                            seconds: this.breakTime.seconds(),
-                            minutes: this.breakTime.minutes(),
-                            hours: this.breakTime.hours()
-                        });
-                        this.end = moment().add(this.activeTime);
-                        // IF THIS STATE = BREAKING, SET STATE TO WORKING, PLAY SOUND, CHANGE ACTIVE TIME VALUE
-                    } else if (this.state == this.BREAKING) {
-                        this.state = 1;
-                        new Audio('./sound/rugby_ole.mp3').play();
-                        this.cycles = this.cycles - 1;
-                        this.activeTime = moment.duration({
-                            seconds: this.workTime.seconds(),
-                            minutes: this.workTime.minutes(),
-                            hours: this.workTime.hours()
-                        });
-                        this.end = moment().add(this.activeTime);
-                        // IF THIS STATE = WAITING, PAUSE CURRENT STATE.
-                    } else if (this.state == this.WAITING) {
-                        this.state = 0;
-                        this.activeTime = moment.duration({
-                            seconds: this.workTime.seconds(),
-                            minutes: this.workTime.minutes(),
-                            hours: this.workTime.hours()
-                        });
-                    }
-                };
-                // GETHTML RETURNS THE REQUIRED HTML TO DISPLAY TO DOM
-                this.getHtml = function () {
-                    return '<div id="pomodoro" class="jumbo"></div><br><div id="cycrem" class="message"></div>'
-                };
-                // UPDATE GIVES THE APP THE VALUES THAT NEED TO BE UPDATING CURRENTLY
-                this.update = function () {
-                    console.log(this.start);
-                    console.log(this.end);
-                    this.activeTime = this.activeTime.subtract(1, 's');
-                    $('#pomodoro').html(Math.floor(this.activeTime.asHours()) + moment.utc(this.activeTime.asMilliseconds()).format(":mm:ss"));
-                    $('#cycrem').html("You are on " + this.workTime.humanize() + "/" + this.breakTime.humanize() + " cycles with " + this.cycles + " remaining.");
-                    if (this.activeTime <= 0) {
-                        this.checkState();
-                    }
-                };
-            };
-            // JQUERY INPUT BUTTON TO SAVE VALUES, AND SWITCHCOMPONENTS
-            $("#pombutton").click(function () {
-                var pomhh = $("#pomhh").val();
-                var pommm = $("#pommm").val();
-                var pomss = $("#pomss").val();
-                var bhh = $("#bhh").val();
-                var bmm = $("#bmm").val();
-                var bss = $("#bss").val();
-                var cyc = $("#cyc").val();
-                switchComponent(new Pomodoro(pomhh, pommm, pomss, bhh, bmm, bss, cyc));
-            });
-
-            // PELKO CONSTRUCTOR
-            function Pelko(bombH, bombM, bombS) {
-                // MAKE A BOMB TIME DURATION WITH INPUT
-                this.bombTime = moment.duration(bombH + ":" + bombM + ":" + bombS);
-
-                // STATE MACHINE SETTINGS
-                this.state = 1;
-                this.WAITING = 0;
-                this.WORKING = 1;
-
-                // THIS IS THE STATE THAT IS CURRENTLY ACTIVE IN THE APP
-                this.activeTime = moment.duration({
-                    seconds: this.bombTime.seconds(),
-                    minutes: this.bombTime.minutes(),
-                    hours: this.bombTime.hours()
-                });
-
-                // THIS IS HOW THE RANDOM TIMER IS MADE 
-                this.alarmTime = moment.duration({
-                    milliseconds: (Math.floor(Math.random() * this.activeTime))
-                });
-
-                // THIS IS THE STATE MACHINE THAT PLAYS SOUNDS, SWITCHES COMPONENT BACK TO CLOCK
-                this.checkState = function () {
-                    new Audio('./sound/rugby_ole.mp3').play();
-                    return switchComponent(new Clock());
-                };
-                // GETHTML RETURNS THE REQUIRED HTML TO DISPLAY TO DOM
-                this.getHtml = function () {
-                    return '<div id="pelko" class="jumbo"></div><br><div id="counter" class="message"></div>'
-                };
-                // UPDATE GIVES THE APP THE VALUES THAT NEED TO BE UPDATING CURRENTLY
-                this.update = function () {
-                    this.activeTime = this.activeTime.subtract(1, 's');
-                    this.alarmTime = this.alarmTime.subtract(1, 's');
-                    $('#pelko').html(Math.floor(this.activeTime.asHours()) + moment.utc(this.activeTime.asMilliseconds()).format(":mm:ss"));
-                    $('#counter').html(Math.floor(this.alarmTime.asHours()) + moment.utc(this.alarmTime.asMilliseconds()).format(":mm:ss"));
-                    if (this.alarmTime <= 0) {
-                        this.checkState();
-                    }
-                };
-            };
-            // JQUERY BUTTON TO ACTIVATE THE PELKO BUTTON
-            $("#pelbutton").click(function () {
-                var pelkohh = $("#pelkohh").val();
-                var pelkomm = $("#pelkomm").val();
-                var pelkoss = $("#pelkoss").val();
-                switchComponent(new Pelko(pelkohh, pelkomm, pelkoss));
-            });
-
-            // ALARM CONSTRUCTOR
-            function Alarm(alarmH, alarmM, alarmS) {
-                // TAKE INPUT OF ALARM TIME AND SET MOMENT EQUAL TO TIMES.
-                this.thenTime = moment(alarmH + ":" + alarmM + ":" + alarmS, "HH:mm:SS");
-                this.nowTime = moment();
-
-                this.diffTime = moment(moment(this.nowTime, "DD/MM/YYYY HH:mm:ss").diff(moment(this.thenTime, "DD/MM/YYYY HH:mm:ss"))).format("DD/MM/YYYY HH:mm:ss");
-
-                this.startTime = null;
-
-                this.checkAlarm = function () {
-                    if (this.thenTime < this.currentTime) {
-                        this.thenTime = moment().add(1, "d");
-
-                    } else {
-                        this.startTime = moment();
-                    }
-                };
-
-                this.checkState = function () {
-                    new Audio('./sound/rugby_ole.mp3').play();
-                    return switchComponent(new Clock);
-                }
-
-                this.checkAlarm();
-
-                this.getHtml = function () {
-                    return '<div id="alarm" class="jumbo"></div><br><div id="message" class="message">Your alarm is set for <span id="alarmmessage"></span></div>'
-                };
-
-                this.update = function () {
-                    this.nowTime = moment();
-                    this.activeTime = moment.duration(this.thenTime.diff(this.nowTime)).subtract(1, "s");
-                    $('#alarm').html(Math.floor(this.activeTime.asHours()) + moment.utc(this.activeTime.asMilliseconds()).format(":mm:ss"));
-                    $('#alarmmessage').html(this.thenTime.format("HH:mm:ss"));
-                    if (this.activeTime <= 0) {
-                        this.checkState();
-                    }
-                };
-
-            };
-
-            $("#alarmbutton").click(function () {
-                var alarmhh = $("#alarmhh").val();
-                var alarmmm = $("#alarmmm").val();
-                var alarmss = $("#alarmss").val();
-                switchComponent(new Alarm(alarmhh, alarmmm, alarmss));
-            });
-
-            // COUNTDOWN CONSTRUCTOR
-            function Count(countH, countM, countS) {
-                this.countTime = moment.duration(countH + ":" + countM + ":" + countS);
-
-                this.activeTime = moment.duration({
-                    seconds: this.countTime.seconds(),
-                    minutes: this.countTime.minutes(),
-                    hours: this.countTime.hours()
-                });
-
-                this.checkState = function () {
-                    new Audio('./sound/rugby_ole.mp3').play();
-                    return switchComponent(new Clock());
-                };
-
-                this.getHtml = function () {
-                    return '<div id="countdown" class="jumbo"></div><br><div id="counter" class="message">Test</div>'
-                };
-
-                this.update = function () {
-                    this.activeTime = this.activeTime.subtract(1, 's');
-                    $('#countdown').html(Math.floor(this.activeTime.asHours()) + moment.utc(this.activeTime.asMilliseconds()).format(":mm:ss"));
-                    if (this.activeTime < 0) {
-                        this.checkState();
-                    }
-                };
-            };
-
-            $("#countbutton").click(function () {
-                var counth = $("#counth").val();
-                var countm = $("#countm").val();
-                var counts = $("#counts").val();
-                switchComponent(new Count(counth, countm, counts));
-            });
-
-            // STOPWATCH CONSTRUCTOR 
-            function Stopwatch() {
-                this.activeTime = moment.duration();
-
-                this.getHtml = function () {
-                    return '<div id="stopwatch" class="jumbo"></div><br><div id="message" class="message"></div>'
-                };
-
-                this.update = function () {
-                    this.activeTime = this.activeTime.add(1, 's');
-                    $('#stopwatch').html(Math.floor(this.activeTime.asHours()) + moment.utc(this.activeTime.asMilliseconds()).format(":mm:ss"));
-                    $('#message').html("<button id='SWStart'>Start</button><button id='SWStart'>Pause</button><button id='SWStart'>Split</button><button id='SWStart'>Reset</button>");
-                    if (this.alarmTime < 1) {
-                        this.checkState();
-                    }
-                }
-            };
-
-
-            $("#swbutton").click(function () {
-                switchComponent(new Stopwatch());
-            });
-
-            // CALENDAR CONSTRUCTOR
-
-            // LOAD THE CLOCK USING THE SWITCHCOMPONENT
-            switchComponent(new Clock());
-
-            // SET INTERVAL ON THE ACTIVECOMPONENT UPDATE
-            setInterval(function () {
-                if (!activeComponent) {
-                    return;
-                }
-
-                activeComponent.update();
-            }, 1000);
-
-            // LOAD THE CLOCK USING THE SWITCHCOMPONENT
-            switchCalendar(new Calendar());
-
-            // SET INTERVAL ON THE ACTIVECOMPONENT UPDATE
-            setInterval(function () {
-                if (!activeCalendar) {
-                    return;
-                }
-
-                activeCalendar.update();
-            }, 1000 / 60);
-        </script>
-    </div>
+	<!-- TOP LEFT SETTINGS MENU -->
+	<div class="cogs menu vertical left" id="menuleft" hidden="true">
+		<div class="cogsheader">
+			<h3>Customize</h3>
+		</div>
+		Income:
+		<br>Gross:
+		<input id="gross" type="text">
+		<br>Hours:
+		<input id="hours" type="text">
+		<br>Rate:
+		<input id="rate" type="text">
+		<br>Net:
+		<input id="net" type="text">
+		<br>Taxes:
+		<input id="taxes" type="text">
+		<br>
+		<br>Housing:
+		<br>Mortgage/Rent:
+		<input id="house" type="text">
+		<br>Insurance:
+		<input id="houseins" type="text">
+		<br>
+		<br>Utilities:
+		<br>Cable/Internet:
+		<input id="cable" type="text">
+		<br>Cellphone:
+		<input id="cell" type="text">
+		<br>Gas/Water/Sewer:
+		<input id="sewer" type="text">
+		<br>
+		<br>Vehicle:
+		<br>Premium:
+		<input id="car" type="text">
+		<br>Insurance:
+		<input id="carins" type="text">
+		<br>Gas/Maintenance:
+		<input id="gas" type="text">
+		<br>
+		<br>Grocery:
+		<input id="food" type="text">
+		<br>
+		<br>Entertainment:
+		<input id="fun" type="text">
+		<br>
+		<br>Savings:
+		<input id="fun" type="text">
+	</div>
+	<!-- TOP RIGHT LINKS MENU -->
+	<div class="menu vertical right" id="menuright" hidden="true">
+		<h3>About</h3>
+	</div>
+	<!-- APP CONTAINER -->
+	<div class="container">
+		<div class="row split header">
+			<!-- SETTINGS MENU BUTTON -->
+
+			<div id="cogs" class="c-button zfix icons mesqu options left">
+				<i class="zfix fa fa-cogs" aria-hidden="true"></i>
+
+				<script>
+					$(document).ready(function () {
+						$('#cogs').click(function () {
+							$('#menuleft').toggle("slide");
+						});
+					});
+				</script>
+
+			</div>
+			<!-- LINKS MENU BUTTON -->
+			<div id="burger" class="c-button zfix icons mesq menu right">
+				<i class="zfix fa fa-bars" aria - hidden="true"></i>
+
+				<script>
+					$(document).ready(function () {
+						$('#burger').click(function () {
+							$('#menuright').slideToggle("slide");
+						});
+					});
+				</script>
+			</div>
+		</div>
+
+		<!-- LARGE TICKER DISPLAY -->
+
+		<div class="row center time">
+			<div class="clock large">
+				<div id="active"></div>
+			</div>
+			<div class="counter float">03
+			</div>
+		</div>
+
+		<!-- BUTTON DISPLAY -->
+
+		<div class="row center quicks">
+
+			<!-- POMODORO HTML CONTAINER -->
+
+			<div class="flip-container">
+				<div class="flipper">
+					<div class="fade front button square pomodoro">
+						<i class="fa fa-dot-circle-o fa-5x" aria-hidden="true"></i>
+						<br>
+
+					</div>
+					<div class="back">
+						<div class="block">
+							Work Length:
+							<br>
+							<input id="pomhh" type="text" value="0" maxlength="2" size="2"> :
+							<input id="pommm" type="text" value="0" maxlength="2" size="2"> :
+							<input id="pomss" type="text" value="10" maxlength="2" size="2">
+						</div>
+						<br>
+						<div class="block">
+							Break Length:
+							<br>
+							<input id="bhh" type="text" value="0" maxlength="2" size="2"> :
+							<input id="bmm" type="text" value="0" maxlength="2" size="2"> :
+							<input id="bss" type="text" value="5" maxlength="2" size="2">
+						</div>
+						<br>
+						<div class="block">
+							Cycles:
+							<br>
+							<input id="cyc" type="text" value="3" maxlength="1" size="2">
+						</div>
+						<br>
+						<button id="pombutton" type="button">Start Timer</button>
+					</div>
+				</div>
+				<h4>Pomodoro</h4>
+			</div>
+
+			<!-- PELKO HTML CONTAINER -->
+
+			<div class="flip-container">
+				<div class="flipper">
+					<div class="fade2 front button square pelko">
+						<i class="fa fa-bomb fa-5x" aria-hidden="true"></i>
+					</div>
+					<div class="back">
+						Random Alarm Between 0 and Length:
+						<br>
+						<input id="pelkohh" type="text" value="0" maxlength="2" size="2">:
+						<input id="pelkomm" type="text" value="00" maxlength="2" size="2">:
+						<input id="pelkoss" type="text" value="30" maxlength="2" size="2">
+						<br>
+						<button id="pelbutton" type="button">Start Timer</button>
+					</div>
+				</div>
+				<h4>Pelko</h4>
+			</div>
+
+			<!-- ALARM CLOCK HTML CONTAINER -->
+
+			<div class="flip-container">
+				<div class="flipper">
+					<div class="fade3 front button square alarm">
+						<i class="fa fa-clock-o fa-5x" aria-hidden="true"></i>
+					</div>
+					<div class="back">
+						<div class="block">
+							Set Future Alarm:
+							<br>
+							<input id="alarmhh" type="text" value="8" maxlength="2" size="2"> :
+							<input id="alarmmm" type="text" value="38" maxlength="2" size="2"> :
+							<input id="alarmss" type="text" value="59" maxlength="2" size="2">
+						</div>
+						<br>
+						<button id="alarmbutton" type="button">Set Alarm</button>
+					</div>
+				</div>
+				<h4>Alarm Clock</h4>
+			</div>
+
+			<!-- COUNTDOWN TIMER HTML CONTAINER -->
+
+			<div class="flip-container">
+				<div class="flipper">
+					<div class="front fade4 button square countdown">
+						<i class="fa fa-undo fa-5x" aria-hidden="true"></i>
+
+					</div>
+					<div class="back">
+						<div class="block">
+							Count Down Alarm Timer
+							<br>
+							<input id="counth" type="text" value="00" maxlength="2" size="2"> :
+							<input id="countm" type="text" value="30" maxlength="2" size="2"> :
+							<input id="counts" type="text" value="00" maxlength="2" size="2">
+						</div>
+						<br>
+						<button id="countbutton" type="button">Start Timer</button>
+					</div>
+				</div>
+
+				<h4>Count Down</h4>
+			</div>
+			<script>
+				function flip() {
+					$('.card').toggleClass('flipped');
+				}
+			</script>
+
+			<!-- STOPWATCH HTML CONTAINER -->
+
+			<div class="flip-container">
+				<div class="flipper">
+					<div class="fade5 front button square stopwatch">
+						<i class="fa fa-history fa-5x fa-flip-horizontal" aria-hidden="true"></i>
+					</div>
+					<div class="back">
+						Timer Starts Instantly
+						<br>
+						<button id="swbutton" type="button">Start</button>
+						<button type="button">Pause</button>
+						<button type="button">Split</button>
+						<br>
+						<button type="button">Reset</button>
+					</div>
+				</div>
+				<h4>Stop Watch</h4>
+			</div>
+
+			<!-- CALENDAR HTML CONTAINER -->
+
+			<div class="flip-container">
+				<div class="flipper">
+					<div class="fade5 front button square cal">
+						<i class="fa fa-calendar fa-5x" aria-hidden="true"></i>
+					</div>
+					<div class="back">
+						<i class="fa fa-calendar fa-5x" aria-hidden="true"></i>
+						<br> Calendar
+					</div>
+				</div>
+				<h4>Calendar</h4>
+			</div>
+
+			<script>
+				$(document).ready(function () {
+					$(".fade").hide(0).delay(0).fadeIn(1000);
+					$(".fade2").hide(0).delay(50).fadeIn(1250);
+					$(".fade3").hide(0).delay(100).fadeIn(1450);
+					$(".fade4").hide(0).delay(150).fadeIn(1600);
+					$(".fade5").hide(0).delay(200).fadeIn(1700);
+
+					$(".pomodoro").click(function () {
+						$(".pomodoro").css("background-color", "yellow");
+					});
+					$(".pomodoro").mouseout(function () {
+						$(".pomodoro").css("background-color", "cadetblue");
+					});
+
+					$(".pelko").click(function () {
+						$(".pelko").css("background-color", "yellow");
+					});
+					$(".pelko").mouseout(function () {
+						$(".pelko").css("background-color", "cadetblue");
+					});
+
+					$(".alarm").click(function () {
+						$(".alarm").css("background-color", "yellow");
+					});
+					$(".alarm").click(function () {
+						$(".alarm").css("background-color", "cadetblue");
+					});
+
+					$(".countdown").click(function () {
+						$(".countdown").css("background-color", "yellow");
+					});
+					$(".countdown").click(function () {
+						$(".countdown").css("background-color", "cadetblue");
+					});
+
+					$(".stopwatch").click(function () {
+						$(".stopwatch").css("background-color", "yellow");
+					});
+					$(".stopwatch").click(function () {
+						$(".stopwatch").css("background-color", "cadetblue");
+					});
+
+					$(".cal").mouseover(function () {
+						$(".cal").css("background-color", "yellow");
+					});
+					$(".cal").mouseout(function () {
+						$(".cal").css("background-color", "cadetblue");
+					});
+				});
+			</script>
+		</div>
+
+		<!-- CALENDAR DISPLAY DIV-->
+		<div class="row center">
+			<div id="calbar"></div>
+		</div>
+
+
+		<!-- FOOTER DISPLAY DIV-->
+
+		<div class="footer center"> F / T / L </div>
+
+		<!-- MAIN HTML JAVASCRIPT-->
+
+		<script>
+			// ACTIVE COMPONENT VARIABLE
+			var activeComponent = null;
+			var activeCalendar = null;
+
+
+
+			// ADD TO DOM FUNCTION - adds the activeComponent.html to the #active ID tag.
+			function addToDom() {
+				var active = $('#active');
+				active.html(activeComponent.getHtml());
+			};
+
+			function calToDom() {
+				var calendaractive = $('#calbar');
+				calendaractive.html(activeCalendar.getCalHtml());
+			};
+
+			// SWITCH BETWEEN ACTIVE COMPONENT FUNCTIONS - changes the active component, adds it to the dom, and then updates activeComponent to the page
+			function switchComponent(item) {
+				activeComponent = item;
+				addToDom();
+				activeComponent.update();
+			};
+
+			function switchCalendar(item) {
+				activeCalendar = item;
+				calToDom();
+				activeCalendar.updateCal();
+			};
+
+			// CALENDAR CONSTRUCTOR GROUP
+
+			function Today() {
+				this.getCalHtml = function () {
+					return '<div class="calcot center"><div id="cday" class="cday"></div><div id="carrot" class="carrot"></div><div id="cdaytext" class="cdaytext"></div>'
+				};
+
+				this.updateCal = function () {
+					this.now = moment().format("dddd, MMMM Do");
+					$('#cdaytext').html(this.now);
+				};
+
+				$(document).ready(function () {
+					$("#cday").click(function () {
+						$("#cday").stop().animate({
+							width: "100%",
+							margin: "0px",
+							left: "0px",
+							right: "0px",
+						}, 2000, "easeInOutQuart", function () {
+							switchCalendar(new Minute);
+						});
+					});
+				});
+			};
+
+			function Minute() {
+				this.starts = moment().startOf("second"); // set to 12:00 am today
+				this.ends = moment().endOf("second"); // set to 23:59 pm today
+				this.startm = moment().startOf("minute");
+				this.endm = moment().endOf("minute");
+				this.now = moment();
+
+				this.past = this.starts.diff(this.startm);
+				this.present = this.ends.diff(this.starts);
+				this.future = this.endm.diff(this.ends);
+
+				this.total = this.past + this.present + this.future;
+
+				this.pastwidth = ((this.past / this.total) * 100);
+				this.daywidth = ((this.present / this.total) * 100);
+				this.futurewidth = ((this.future / this.total) * 100);
+
+
+				this.getCalHtml = function () {
+					return '<div id="calbutton" class="calcot center inline"><div id="pastw" class="pastw"></div><div id="presentd" class="presentd"></div><div id="futurew" class="futurew"></div></div>'
+				};
+
+				this.updateCal = function () {
+					this.starts = moment().startOf("second"); // set to 12:00 am today
+					this.ends = moment().endOf("second"); // set to 23:59 pm today
+					this.startm = moment().startOf("minute");
+					this.endm = moment().endOf("minute");
+					this.now = moment();
+
+					this.past = this.starts.diff(this.startm);
+					this.present = this.ends.diff(this.starts);
+					this.future = this.endm.diff(this.ends);
+
+					this.total = this.past + this.present + this.future;
+
+					this.pastwidth = ((this.past / this.total) * 100);
+					this.daywidth = ((this.present / this.total) * 100);
+					this.futurewidth = ((this.future / this.total) * 100);
+					document.getElementById("pastw").style.left = 0;
+					document.getElementById("pastw").style.width = this.pastwidth + "%";
+					document.getElementById("presentd").style.left = this.pastwidth + "%";
+					document.getElementById("presentd").style.width = this.daywidth + "%";
+					document.getElementById("futurew").style.left = (this.daywidth + this.pastwidth) + "%";
+					document.getElementById("futurew").style.width = this.futurewidth + "%";
+
+				};
+
+				$(document).ready(function () {
+					$("#calbutton").click(function () {
+						$("#pastw").stop().animate({
+							backgroundColor: "rgb(0,0,0,0.0)",
+							width: "100%",
+							margin: "0px",
+							left: "0px",
+							right: "0px",
+						}, 2000, "easeInOutQuart", function () {
+							switchCalendar(new Hour);
+						});
+					});
+				});
+			};
+
+
+			function Hour() {
+				this.startm = moment().startOf("minute"); // set to 12:00 am today
+				this.endm = moment().endOf("minute"); // set to 23:59 pm today
+				this.starth = moment().startOf("hour");
+				this.endh = moment().endOf("hour");
+				this.now = moment();
+
+				this.past = this.startm.diff(this.starth);
+				this.present = this.endm.diff(this.startm);
+				this.future = this.endh.diff(this.endm);
+
+				this.total = this.past + this.present + this.future;
+
+				this.pastwidth = ((this.past / this.total) * 100);
+				this.daywidth = ((this.present / this.total) * 100);
+				this.futurewidth = ((this.future / this.total) * 100);
+
+
+				this.getCalHtml = function () {
+					return '<div class="calcot center inline"><div id="pastw" class="pastw"></div><div id="presentd" class="presentd"></div><div id="futurew" class="futurew"></div></div>'
+				};
+
+				this.updateCal = function () {
+					this.startm = moment().startOf("minute"); // set to 12:00 am today
+					this.endm = moment().endOf("minute"); // set to 23:59 pm today
+					this.starth = moment().startOf("hour");
+					this.endh = moment().endOf("hour");
+					this.now = moment();
+
+					this.past = this.startm.diff(this.starth);
+					this.present = this.endm.diff(this.startm);
+					this.future = this.endh.diff(this.endm);
+
+					this.total = this.past + this.present + this.future;
+
+					this.pastwidth = ((this.past / this.total) * 100);
+					this.daywidth = ((this.present / this.total) * 100);
+					this.futurewidth = ((this.future / this.total) * 100);
+					document.getElementById("pastw").style.left = 0;
+					document.getElementById("pastw").style.width = this.pastwidth + "%";
+					document.getElementById("presentd").style.left = this.pastwidth + "%";
+					document.getElementById("presentd").style.width = this.daywidth + "%";
+					document.getElementById("futurew").style.left = (this.daywidth + this.pastwidth) + "%";
+					document.getElementById("futurew").style.width = this.futurewidth + "%";
+
+				};
+			};
+
+
+			function Day() {
+				this.startd = moment().startOf("day"); // set to 12:00 am today
+				this.endd = moment().endOf("day"); // set to 23:59 pm today
+				this.starth = moment().startOf("hour");
+				this.endh = moment().endOf("hour");
+				this.now = moment();
+
+				this.past = this.starth.diff(this.startd);
+				this.present = this.endh.diff(this.starth);
+				this.future = this.endd.diff(this.endh);
+
+				this.total = this.past + this.present + this.future;
+
+				this.pastwidth = ((this.past / this.total) * 100);
+				this.daywidth = ((this.present / this.total) * 100);
+				this.futurewidth = ((this.future / this.total) * 100);
+
+
+				this.getCalHtml = function () {
+					return '<div class="calcot center"><div id="pastw" class="pastw"></div><div id="presentd" class="presentd"></div><div id="futurew" class="futurew"></div></div>'
+				};
+
+				this.updateCal = function () {
+					this.startd = moment().startOf("day"); // set to 12:00 am today
+					this.endd = moment().endOf("day"); // set to 23:59 pm today
+					this.starth = moment().startOf("hour");
+					this.endh = moment().endOf("hour");
+					this.now = moment();
+
+					this.past = this.starth.diff(this.startd);
+					this.present = this.endh.diff(this.starth);
+					this.future = this.endd.diff(this.endh);
+
+					this.total = this.past + this.present + this.future;
+
+					this.pastwidth = ((this.past / this.total) * 100);
+					this.daywidth = ((this.present / this.total) * 100);
+					this.futurewidth = ((this.future / this.total) * 100);
+					document.getElementById("pastw").style.left = 0 + "%";
+					document.getElementById("pastw").style.width = this.pastwidth + "%";
+					document.getElementById("presentd").style.left = this.pastwidth + "%";
+					document.getElementById("presentd").style.width = this.daywidth + "%";
+					document.getElementById("futurew").style.left = (this.pastwidth + this.daywidth) + "%";
+					document.getElementById("futurew").style.width = this.futurewidth + "%";
+
+				};
+			};
+
+			function Week() {
+				this.startw = moment().startOf("week"); // set to 12:00 am today
+				this.endw = moment().endOf("week"); // set to 23:59 pm today
+				this.startd = moment().startOf("day");
+				this.endd = moment().endOf("day");
+				this.now = moment();
+
+				this.past = this.startd.diff(this.startw);
+				this.present = this.endd.diff(this.startd);
+				this.future = this.endw.diff(this.endd);
+
+				this.total = this.past + this.present + this.future;
+
+				this.pastwidth = ((this.past / this.total) * 100);
+				this.daywidth = ((this.present / this.total) * 100);
+				this.futurewidth = ((this.future / this.total) * 100);
+
+
+				this.getCalHtml = function () {
+					return '<div class="calcot center"><div id="pastw" class="pastw"></div><div id="presentd" class="presentd"></div><div id="futurew" class="futurew"></div></div>'
+				};
+
+				this.updateCal = function () {
+					this.startw = moment().startOf("week"); // set to 12:00 am today
+					this.endw = moment().endOf("week"); // set to 23:59 pm today
+					this.startd = moment().startOf("day");
+					this.endd = moment().endOf("day");
+					this.now = moment();
+
+					this.past = this.startd.diff(this.startw);
+					this.present = this.endd.diff(this.startd);
+					this.future = this.endw.diff(this.endd);
+
+					this.total = this.past + this.present + this.future;
+
+					this.pastwidth = ((this.past / this.total) * 100);
+					this.daywidth = ((this.present / this.total) * 100);
+					this.futurewidth = ((this.future / this.total) * 100);
+					document.getElementById("pastw").style.width = this.pastwidth + "%";
+					document.getElementById("presentd").style.width = this.daywidth + "%";
+					document.getElementById("futurew").style.width = this.futurewidth + "%";
+
+				};
+
+				$(document).ready(function () {
+					$("#cday").click(function () {
+						$("#cday").stop().animate({
+							backgroundColor: "rgb(0,0,0,0.0)",
+							width: "100%",
+							margin: "0px",
+							left: "0px",
+							right: "0px",
+						}, 2000, "easeInOutQuart", function () {
+							switchCalendar(new Minute);
+						});
+					});
+				});
+			};
+
+
+
+
+			//			function Minute() {
+			//				this.start = moment().startOf("minute"); // set to 12:00 am today
+			//				this.end = moment().endOf("minute"); // set to 23:59 pm today
+			//				this.now = moment();
+			//
+			//				this.past = this.now.diff(this.start);
+			//				this.future = this.end.diff(this.now);
+			//				this.total = this.past + this.future;
+			//
+			//				this.pastwidth = null;
+			//
+			//				this.getCalHtml = function () {
+			//					return '<div class="calcot center"><div id="ctoday" class="ctoday"></div></div>'
+			//				};
+			//
+			//				this.updateCal = function () {
+			//					this.start = moment().startOf("minute");
+			//					this.end = moment().endOf("minute");
+			//					this.now = moment();
+			//
+			//					this.past = this.now.diff(this.start);
+			//					this.future = this.end.diff(this.now);
+			//					this.total = this.past + this.future;
+			//
+			//					this.pastwidth = ((this.past / this.total) * 100);
+			//					document.getElementById("ctoday").style.width = this.pastwidth + "%";
+			//
+			//				};
+			//
+			//				//              var start = moment().startOf(input); // set to 12:00 am today
+			//				//				var end = moment().endOf(input); // set to 23:59 pm today
+			//				//				var now = moment();
+			//				//
+			//				//				var past = now.diff(start);
+			//				//				var future = end.diff(now);
+			//				//
+			//				//				var total = past + future;
+			//				//
+			//				//				var pastwidth = ((past / total) * 100);
+			//				//
+			//				//				document.getElementById("ctoday").style.width = pastwidth + "%";
+			//
+			//			};
+
+			// CLOCK CONSTRUCTOR
+			function Clock() {
+				this.getHtml = function () {
+					return '<div id="clock" class="jumbo clock"></div><br><div id="todayis" class="message"></div>';
+				};
+				this.update = function () {
+					var date = moment(new Date).format('h:mm:ss');
+					$('#clock').html(date);
+					var todayis = moment(new Date).format('dddd, MMMM Do');
+					$('#todayis').html(todayis);
+				};
+			};
+
+			// POMODORO CONSTRUCTOR - Takes inputs for work H M S and break H M S along with values for the cycle.
+			function Pomodoro(workH, workM, workS, breakH, breakM, breakS, cycles) {
+
+				// MAKE A DURATION WITH INPUT AND SET CYCLES TO 1 LESS THAN NEEDED
+				this.workTime = moment.duration(workH + ":" + workM + ":" + workS);
+				this.breakTime = moment.duration(breakH + ":" + breakM + ":" + breakS);
+				this.cycles = cycles - 1;
+				this.start = moment();
+
+				// STATE CONTROLLER VARIABLE
+				this.state = 1;
+
+				// STATE VARIABLES
+				this.WAITING = 0;
+				this.WORKING = 1;
+				this.BREAKING = 2;
+
+				// THIS IS THE STATE THAT IS CURRENTLY ACTIVE IN THE APP
+				this.activeTime = moment.duration({
+					seconds: this.workTime.seconds(),
+					minutes: this.workTime.minutes(),
+					hours: this.workTime.hours()
+				});
+
+				this.end = moment().add(this.activeTime);
+
+				this.mover = this.start.clone().add(this.activeTime);
+
+				console.log(this.mover);
+
+
+
+				console.log(this.start);
+				console.log(this.end);
+
+				// CHECKS THE STATE AT THE END OF EACH CYCLE.
+				this.checkState = function () {
+					// IF THE CYCLE IS 0, PLAY A SOUND, RETURN TO CLOCK
+					if (this.cycles == 0) {
+						new Audio('./sound/rugby_ole.mp3').play();
+						return switchComponent(new Clock);
+					}
+					// IF THIS STATE = WORKING, SET STATE TO BREAKING, PLAY SOUND, CHANGE ACTIVE TIME VALUE
+					if (this.state == this.WORKING) {
+						this.state = 2;
+						new Audio('./sound/rugby_ole.mp3').play();
+						this.activeTime = moment.duration({
+							seconds: this.breakTime.seconds(),
+							minutes: this.breakTime.minutes(),
+							hours: this.breakTime.hours()
+						});
+						this.end = moment().add(this.activeTime);
+						// IF THIS STATE = BREAKING, SET STATE TO WORKING, PLAY SOUND, CHANGE ACTIVE TIME VALUE
+					} else if (this.state == this.BREAKING) {
+						this.state = 1;
+						new Audio('./sound/rugby_ole.mp3').play();
+						this.cycles = this.cycles - 1;
+						this.activeTime = moment.duration({
+							seconds: this.workTime.seconds(),
+							minutes: this.workTime.minutes(),
+							hours: this.workTime.hours()
+						});
+						this.end = moment().add(this.activeTime);
+						// IF THIS STATE = WAITING, PAUSE CURRENT STATE.
+					} else if (this.state == this.WAITING) {
+						this.state = 0;
+						this.activeTime = moment.duration({
+							seconds: this.workTime.seconds(),
+							minutes: this.workTime.minutes(),
+							hours: this.workTime.hours()
+						});
+					}
+				};
+				// GETHTML RETURNS THE REQUIRED HTML TO DISPLAY TO DOM
+				this.getHtml = function () {
+					return '<div id="pomodoro" class="jumbo"></div><br><div id="cycrem" class="message"></div>'
+				};
+				// UPDATE GIVES THE APP THE VALUES THAT NEED TO BE UPDATING CURRENTLY
+				this.update = function () {
+					console.log(this.start);
+					console.log(this.end);
+					this.activeTime = this.activeTime.subtract(1, 's');
+					$('#pomodoro').html(Math.floor(this.activeTime.asHours()) + moment.utc(this.activeTime.asMilliseconds()).format(":mm:ss"));
+					$('#cycrem').html("You are on " + this.workTime.humanize() + "/" + this.breakTime.humanize() + " cycles with " + this.cycles + " remaining.");
+					if (this.activeTime <= 0) {
+						this.checkState();
+					}
+				};
+			};
+			// JQUERY INPUT BUTTON TO SAVE VALUES, AND SWITCHCOMPONENTS
+			$("#pombutton").click(function () {
+				var pomhh = $("#pomhh").val();
+				var pommm = $("#pommm").val();
+				var pomss = $("#pomss").val();
+				var bhh = $("#bhh").val();
+				var bmm = $("#bmm").val();
+				var bss = $("#bss").val();
+				var cyc = $("#cyc").val();
+				switchComponent(new Pomodoro(pomhh, pommm, pomss, bhh, bmm, bss, cyc));
+			});
+
+			// PELKO CONSTRUCTOR
+			function Pelko(bombH, bombM, bombS) {
+				// MAKE A BOMB TIME DURATION WITH INPUT
+				this.bombTime = moment.duration(bombH + ":" + bombM + ":" + bombS);
+
+				// STATE MACHINE SETTINGS
+				this.state = 1;
+				this.WAITING = 0;
+				this.WORKING = 1;
+
+				// THIS IS THE STATE THAT IS CURRENTLY ACTIVE IN THE APP
+				this.activeTime = moment.duration({
+					seconds: this.bombTime.seconds(),
+					minutes: this.bombTime.minutes(),
+					hours: this.bombTime.hours()
+				});
+
+				// THIS IS HOW THE RANDOM TIMER IS MADE 
+				this.alarmTime = moment.duration({
+					milliseconds: (Math.floor(Math.random() * this.activeTime))
+				});
+
+				// THIS IS THE STATE MACHINE THAT PLAYS SOUNDS, SWITCHES COMPONENT BACK TO CLOCK
+				this.checkState = function () {
+					new Audio('./sound/rugby_ole.mp3').play();
+					return switchComponent(new Clock());
+				};
+				// GETHTML RETURNS THE REQUIRED HTML TO DISPLAY TO DOM
+				this.getHtml = function () {
+					return '<div id="pelko" class="jumbo"></div><br><div id="counter" class="message"></div>'
+				};
+				// UPDATE GIVES THE APP THE VALUES THAT NEED TO BE UPDATING CURRENTLY
+				this.update = function () {
+					this.activeTime = this.activeTime.subtract(1, 's');
+					this.alarmTime = this.alarmTime.subtract(1, 's');
+					$('#pelko').html(Math.floor(this.activeTime.asHours()) + moment.utc(this.activeTime.asMilliseconds()).format(":mm:ss"));
+					$('#counter').html(Math.floor(this.alarmTime.asHours()) + moment.utc(this.alarmTime.asMilliseconds()).format(":mm:ss"));
+					if (this.alarmTime <= 0) {
+						this.checkState();
+					}
+				};
+			};
+			// JQUERY BUTTON TO ACTIVATE THE PELKO BUTTON
+			$("#pelbutton").click(function () {
+				var pelkohh = $("#pelkohh").val();
+				var pelkomm = $("#pelkomm").val();
+				var pelkoss = $("#pelkoss").val();
+				switchComponent(new Pelko(pelkohh, pelkomm, pelkoss));
+			});
+
+			// ALARM CONSTRUCTOR
+			function Alarm(alarmH, alarmM, alarmS) {
+				// TAKE INPUT OF ALARM TIME AND SET MOMENT EQUAL TO TIMES.
+				this.thenTime = moment(alarmH + ":" + alarmM + ":" + alarmS, "HH:mm:SS");
+				this.nowTime = moment();
+
+				this.diffTime = moment(moment(this.nowTime, "DD/MM/YYYY HH:mm:ss").diff(moment(this.thenTime, "DD/MM/YYYY HH:mm:ss"))).format("DD/MM/YYYY HH:mm:ss");
+
+				this.startTime = null;
+
+				this.checkAlarm = function () {
+					if (this.thenTime < this.currentTime) {
+						this.thenTime = moment().add(1, "d");
+
+					} else {
+						this.startTime = moment();
+					}
+				};
+
+				this.checkState = function () {
+					new Audio('./sound/rugby_ole.mp3').play();
+					return switchComponent(new Clock);
+				}
+
+				this.checkAlarm();
+
+				this.getHtml = function () {
+					return '<div id="alarm" class="jumbo"></div><br><div id="message" class="message">Your alarm is set for <span id="alarmmessage"></span></div>'
+				};
+
+				this.update = function () {
+					this.nowTime = moment();
+					this.activeTime = moment.duration(this.thenTime.diff(this.nowTime)).subtract(1, "s");
+					$('#alarm').html(Math.floor(this.activeTime.asHours()) + moment.utc(this.activeTime.asMilliseconds()).format(":mm:ss"));
+					$('#alarmmessage').html(this.thenTime.format("HH:mm:ss"));
+					if (this.activeTime <= 0) {
+						this.checkState();
+					}
+				};
+
+			};
+
+			$("#alarmbutton").click(function () {
+				var alarmhh = $("#alarmhh").val();
+				var alarmmm = $("#alarmmm").val();
+				var alarmss = $("#alarmss").val();
+				switchComponent(new Alarm(alarmhh, alarmmm, alarmss));
+			});
+
+			// COUNTDOWN CONSTRUCTOR
+			function Count(countH, countM, countS) {
+				this.countTime = moment.duration(countH + ":" + countM + ":" + countS);
+
+				this.activeTime = moment.duration({
+					seconds: this.countTime.seconds(),
+					minutes: this.countTime.minutes(),
+					hours: this.countTime.hours()
+				});
+
+				this.checkState = function () {
+					new Audio('./sound/rugby_ole.mp3').play();
+					return switchComponent(new Clock());
+				};
+
+				this.getHtml = function () {
+					return '<div id="countdown" class="jumbo"></div><br><div id="counter" class="message">Test</div>'
+				};
+
+				this.update = function () {
+					this.activeTime = this.activeTime.subtract(1, 's');
+					$('#countdown').html(Math.floor(this.activeTime.asHours()) + moment.utc(this.activeTime.asMilliseconds()).format(":mm:ss"));
+					if (this.activeTime < 0) {
+						this.checkState();
+					}
+				};
+			};
+
+			$("#countbutton").click(function () {
+				var counth = $("#counth").val();
+				var countm = $("#countm").val();
+				var counts = $("#counts").val();
+				switchComponent(new Count(counth, countm, counts));
+			});
+
+			// STOPWATCH CONSTRUCTOR 
+			function Stopwatch() {
+				this.activeTime = moment.duration();
+
+				this.getHtml = function () {
+					return '<div id="stopwatch" class="jumbo"></div><br><div id="message" class="message"></div>'
+				};
+
+				this.update = function () {
+					this.activeTime = this.activeTime.add(1, 's');
+					$('#stopwatch').html(Math.floor(this.activeTime.asHours()) + moment.utc(this.activeTime.asMilliseconds()).format(":mm:ss"));
+					$('#message').html("<button id='SWStart'>Start</button><button id='SWStart'>Pause</button><button id='SWStart'>Split</button><button id='SWStart'>Reset</button>");
+					if (this.alarmTime < 1) {
+						this.checkState();
+					}
+				}
+			};
+
+
+			$("#swbutton").click(function () {
+				switchComponent(new Stopwatch());
+			});
+
+			// CALENDAR CONSTRUCTOR
+
+			// LOAD THE CLOCK USING THE SWITCHCOMPONENT
+			switchComponent(new Clock());
+
+			// SET INTERVAL ON THE ACTIVECOMPONENT UPDATE
+			setInterval(function () {
+				if (!activeComponent) {
+					return;
+				}
+
+				activeComponent.update();
+			}, 1000);
+
+			// LOAD THE CLOCK USING THE SWITCHCOMPONENT
+			switchCalendar(new Today());
+
+			// SET INTERVAL ON THE ACTIVECOMPONENT UPDATE
+			setInterval(function () {
+				if (!activeCalendar) {
+					return;
+				}
+
+				activeCalendar.updateCal();
+			}, 1000 / 60);
+		</script>
+	</div>
 </body>
 
 
