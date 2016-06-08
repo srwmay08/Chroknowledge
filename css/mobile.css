@@ -1,6 +1,5 @@
 @media(max-width: 600px) {
 	.quicks {
-		background-color: yellow;
 		display: flex;
 		padding: 0% 0% 18% 0%;
 		margin-right: 20px;
@@ -13,14 +12,12 @@
 	}
 	.jumbo {
 		font-size: 7em;
-		background-color: yellow;
 		transition: .6s;
 	}
 }
 
 @media(max-width: 800px) {
 	.quicks {
-		background-color: yellow;
 		display: flex;
 		padding: 0% 0% 18% 0%;
 		margin-right: 20px;
