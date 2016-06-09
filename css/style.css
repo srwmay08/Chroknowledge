@@ -91,7 +91,6 @@ TEAL: #008E97 GOLD: #F58220 DARK: #005778 */
 	height: 18vh;
 	margin: auto;
 	z-index: -1px;
-	margin-top: 5%;
 	padding-top: 0.5%;
 	padding-bottom: 0.5%;
 	position: relative;
@@ -203,8 +202,27 @@ TEAL: #008E97 GOLD: #F58220 DARK: #005778 */
 	height: 92%;
 }
 
+.pastweek {
+	position: absolute;
+	background-color: blue;
+	height: 92%;
+}
+
+.futureweek {
+	position: absolute;
+	background-color: green;
+	height: 92%;
+}
+
 .inline {
 	display: inline-block;
+}
+
+.nowline {
+	position: absolute;
+	background-color: black;
+	width: 5px;
+	z-index: 7;
 }
 
 * entire container,

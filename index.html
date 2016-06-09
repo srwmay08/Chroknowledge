@@ -408,6 +408,10 @@
 					return '<div id="calbutton" class="calcot center inline"><div id="pastw" class="pastw"></div><div id="presentd" class="presentd"></div><div id="futurew" class="futurew"></div></div>'
 				};
 
+				this.next = function () {
+					switchCalendar(new Hour);
+				}
+
 				this.updateCal = function () {
 					this.starts = moment().startOf("second"); // set to 12:00 am today
 					this.ends = moment().endOf("second"); // set to 23:59 pm today
@@ -432,20 +436,10 @@
 					document.getElementById("futurew").style.width = this.futurewidth + "%";
 
 				};
+				$("#calbar").click(function () {
+					this.next();
+				}.bind(this));
 
-				$(document).ready(function () {
-					$("#calbutton").click(function () {
-						$("#pastw").stop().animate({
-							backgroundColor: "rgb(0,0,0,0.0)",
-							width: "100%",
-							margin: "0px",
-							left: "0px",
-							right: "0px",
-						}, 2000, "easeInOutQuart", function () {
-							switchCalendar(new Hour);
-						});
-					});
-				});
 			};
 
 
@@ -456,19 +450,32 @@
 				this.endh = moment().endOf("hour");
 				this.now = moment();
 
+				this.nowline = this.now.diff(this.starth);
+
+				console.log(this.nowline);
+
+
+
 				this.past = this.startm.diff(this.starth);
 				this.present = this.endm.diff(this.startm);
 				this.future = this.endh.diff(this.endm);
 
 				this.total = this.past + this.present + this.future;
 
+				this.nowwidth = ((this.nowline / this.total) * 100);
+				console.log(this.nowwidth);
+
+
 				this.pastwidth = ((this.past / this.total) * 100);
 				this.daywidth = ((this.present / this.total) * 100);
 				this.futurewidth = ((this.future / this.total) * 100);
 
+				this.next = function () {
+					switchCalendar(new Day);
+				}
 
 				this.getCalHtml = function () {
-					return '<div class="calcot center inline"><div id="pastw" class="pastw"></div><div id="presentd" class="presentd"></div><div id="futurew" class="futurew"></div></div>'
+					return '<div class="calcot center inline"><div id="nowline" class="nowline"></div><div id="pastw" class="pastw"></div><div id="presentd" class="presentd"></div><div id="futurew" class="futurew"></div></div>'
 				};
 
 				this.updateCal = function () {
@@ -487,6 +494,7 @@
 					this.pastwidth = ((this.past / this.total) * 100);
 					this.daywidth = ((this.present / this.total) * 100);
 					this.futurewidth = ((this.future / this.total) * 100);
+					document.getElementById("nowline").style.left = ((this.nowline / this.total) * 100) + "%";
 					document.getElementById("pastw").style.left = 0;
 					document.getElementById("pastw").style.width = this.pastwidth + "%";
 					document.getElementById("presentd").style.left = this.pastwidth + "%";
@@ -495,6 +503,9 @@
 					document.getElementById("futurew").style.width = this.futurewidth + "%";
 
 				};
+				$("#calbar").click(function () {
+					this.next();
+				}.bind(this));
 			};
 
 
@@ -515,6 +526,9 @@
 				this.daywidth = ((this.present / this.total) * 100);
 				this.futurewidth = ((this.future / this.total) * 100);
 
+				this.next = function () {
+					switchCalendar(new Week);
+				}
 
 				this.getCalHtml = function () {
 					return '<div class="calcot center"><div id="pastw" class="pastw"></div><div id="presentd" class="presentd"></div><div id="futurew" class="futurew"></div></div>'
@@ -544,6 +558,9 @@
 					document.getElementById("futurew").style.width = this.futurewidth + "%";
 
 				};
+				$("#calbar").click(function () {
+					this.next();
+				}.bind(this));
 			};
 
 			function Week() {
@@ -563,6 +580,9 @@
 				this.daywidth = ((this.present / this.total) * 100);
 				this.futurewidth = ((this.future / this.total) * 100);
 
+				this.next = function () {
+					switchCalendar(new Month);
+				}
 
 				this.getCalHtml = function () {
 					return '<div class="calcot center"><div id="pastw" class="pastw"></div><div id="presentd" class="presentd"></div><div id="futurew" class="futurew"></div></div>'
@@ -584,25 +604,105 @@
 					this.pastwidth = ((this.past / this.total) * 100);
 					this.daywidth = ((this.present / this.total) * 100);
 					this.futurewidth = ((this.future / this.total) * 100);
+					document.getElementById("pastw").style.left = 0 + "%";
 					document.getElementById("pastw").style.width = this.pastwidth + "%";
+					document.getElementById("presentd").style.left = this.pastwidth + "%";
 					document.getElementById("presentd").style.width = this.daywidth + "%";
+					document.getElementById("futurew").style.left = (this.pastwidth + this.daywidth) + "%";
 					document.getElementById("futurew").style.width = this.futurewidth + "%";
 
 				};
 
-				$(document).ready(function () {
-					$("#cday").click(function () {
-						$("#cday").stop().animate({
-							backgroundColor: "rgb(0,0,0,0.0)",
-							width: "100%",
-							margin: "0px",
-							left: "0px",
-							right: "0px",
-						}, 2000, "easeInOutQuart", function () {
-							switchCalendar(new Minute);
-						});
-					});
-				});
+				$("#calbar").click(function () {
+					this.next();
+				}.bind(this));
+			};
+
+			function Month() {
+				this.startm = moment().startOf("month"); // set to 12:00 am today
+				this.endm = moment().endOf("month"); // set to 23:59 pm today
+				this.startw = moment().startOf("week");
+				this.endw = moment().endOf("week");
+				this.startd = moment().startOf("day");
+				this.endd = moment().endOf("day");
+				this.now = moment();
+
+				this.past = this.startw.diff(this.startm);
+				this.pweek = this.startd.diff(this.startw)
+				this.present = this.endd.diff(this.startd);
+				this.fweek = this.endw.diff(this.endd);
+				this.future = this.endm.diff(this.endw);
+
+
+
+				this.total = (this.past + this.pweek + this.present + this.fweek + this.future);
+
+				console.log();
+
+				this.pastwidth = ((this.past / this.total) * 100);
+				this.pastweek = ((this.pweek / this.total) * 100);
+				this.daywidth = ((this.present / this.total) * 100);
+				this.futureweek = ((this.fweek / this.total) * 100);
+				this.futurewidth = ((this.future / this.total) * 100);
+
+				console.log(this.pastwidth);
+				console.log(this.pastweek);
+				console.log(this.daywidth);
+				console.log(this.futureweek);
+				console.log(this.futurewidth);
+
+
+				this.next = function () {
+					switchCalendar(new Today);
+				};
+
+				this.getCalHtml = function () {
+					return '<div class="calcot center"><div id="pastweeks" class="pastw"></div><div id="pastweek" class="pastweek"></div><div id="presentday" class="presentd"></div><div id="futureweek" class="futureweek"></div><div id="futureweeks" class="futurew"></div></div>'
+				};
+
+				this.updateCal = function () {
+					this.startm = moment().startOf("month"); // set to 12:00 am today
+					this.endm = moment().endOf("month"); // set to 23:59 pm today
+					this.startw = moment().startOf("week");
+					this.endw = moment().endOf("week");
+					this.startd = moment().startOf("day");
+					this.endd = moment().endOf("day");
+					this.now = moment();
+
+					this.past = this.startw.diff(this.startm);
+					this.pweek = this.startd.diff(this.startw)
+					this.present = this.endd.diff(this.startd);
+					this.fweek = this.endw.diff(this.endd);
+					this.future = this.endm.diff(this.endw);
+
+					console.log(this.future);
+
+					this.total = (this.past + this.pastweek + this.present + this.futureweek + this.future);
+
+					this.pastwidth = ((this.past / this.total) * 100);
+					this.pastweek = ((this.pweek / this.total) * 100);
+					this.daywidth = ((this.present / this.total) * 100);
+					this.futureweek = ((this.fweek / this.total) * 100);
+					this.futurewidth = ((this.future / this.total) * 100);
+
+					document.getElementById("pastweeks").style.width = this.pastwidth + "%";
+					document.getElementById("pastweeks").style.left = 0 + "%";
+
+					document.getElementById("pastweek").style.width = this.pastweek + "%";
+					document.getElementById("pastweek").style.left = this.pastwidth + "%";
+
+					document.getElementById("presentday").style.width = this.daywidth + "%";
+					document.getElementById("presentday").style.left = (this.pastwidth + this.pastweek) + "%";
+					document.getElementById("futureweek").style.width = this.futureweek + "%";
+					document.getElementById("futureweek").style.left = (this.pastwidth + this.pastweek + this.daywidth) + "%";
+					document.getElementById("futureweeks").style.width = this.futurewidth + "%";
+					document.getElementById("futureweeks").style.left = (this.pastwidth + this.pastweek + this.daywidth + this.futureweek) + "%";
+
+
+				};
+				$("#calbar").click(function () {
+					this.next();
+				}.bind(this));
 			};
 
 
@@ -951,9 +1051,5 @@
 		</script>
 	</div>
 </body>
-
-
-
-
 
 </html>
