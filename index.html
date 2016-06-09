@@ -12,6 +12,9 @@
 
 	<link rel="stylesheet" href="css/mobile.css">
 
+	<link rel="stylesheet" type="text/css" href="css/flaticon.css">
+
+
 
 	<!-- JAVASCRIPT CDN -->
 
@@ -112,8 +115,10 @@
 			<div class="clock large">
 				<div id="active"></div>
 			</div>
+			<!--
 			<div class="counter float">03
-			</div>
+</div>
+-->
 		</div>
 
 		<!-- BUTTON DISPLAY -->
@@ -123,6 +128,7 @@
 			<!-- POMODORO HTML CONTAINER -->
 
 			<div class="flip-container">
+				<h4>Pomodoro</h4>
 				<div class="flipper">
 					<div class="fade front button square pomodoro">
 						<i class="fa fa-dot-circle-o fa-5x" aria-hidden="true"></i>
@@ -155,12 +161,13 @@
 						<button id="pombutton" type="button">Start Timer</button>
 					</div>
 				</div>
-				<h4>Pomodoro</h4>
+
 			</div>
 
 			<!-- PELKO HTML CONTAINER -->
 
 			<div class="flip-container">
+				<h4>Pelko</h4>
 				<div class="flipper">
 					<div class="fade2 front button square pelko">
 						<i class="fa fa-bomb fa-5x" aria-hidden="true"></i>
@@ -175,12 +182,13 @@
 						<button id="pelbutton" type="button">Start Timer</button>
 					</div>
 				</div>
-				<h4>Pelko</h4>
+
 			</div>
 
 			<!-- ALARM CLOCK HTML CONTAINER -->
 
 			<div class="flip-container">
+				<h4>Alarm Clock</h4>
 				<div class="flipper">
 					<div class="fade3 front button square alarm">
 						<i class="fa fa-clock-o fa-5x" aria-hidden="true"></i>
@@ -197,12 +205,13 @@
 						<button id="alarmbutton" type="button">Set Alarm</button>
 					</div>
 				</div>
-				<h4>Alarm Clock</h4>
+
 			</div>
 
 			<!-- COUNTDOWN TIMER HTML CONTAINER -->
 
 			<div class="flip-container">
+				<h4>Count Down</h4>
 				<div class="flipper">
 					<div class="front fade4 button square countdown">
 						<i class="fa fa-undo fa-5x" aria-hidden="true"></i>
@@ -221,7 +230,7 @@
 					</div>
 				</div>
 
-				<h4>Count Down</h4>
+
 			</div>
 			<script>
 				function flip() {
@@ -232,6 +241,7 @@
 			<!-- STOPWATCH HTML CONTAINER -->
 
 			<div class="flip-container">
+				<h4>Stop Watch</h4>
 				<div class="flipper">
 					<div class="fade5 front button square stopwatch">
 						<i class="fa fa-history fa-5x fa-flip-horizontal" aria-hidden="true"></i>
@@ -246,12 +256,13 @@
 						<button type="button">Reset</button>
 					</div>
 				</div>
-				<h4>Stop Watch</h4>
+
 			</div>
 
 			<!-- CALENDAR HTML CONTAINER -->
 
 			<div class="flip-container">
+				<h4>Calendar</h4>
 				<div class="flipper">
 					<div class="fade5 front button square cal">
 						<i class="fa fa-calendar fa-5x" aria-hidden="true"></i>
@@ -261,7 +272,7 @@
 						<br> Calendar
 					</div>
 				</div>
-				<h4>Calendar</h4>
+
 			</div>
 
 			<script>
@@ -273,45 +284,45 @@
 					$(".fade5").hide(0).delay(200).fadeIn(1700);
 
 					$(".pomodoro").click(function () {
-						$(".pomodoro").css("background-color", "yellow");
+						$(".pomodoro").css("background-color", "#63A088");
 					});
 					$(".pomodoro").mouseout(function () {
-						$(".pomodoro").css("background-color", "cadetblue");
+						$(".pomodoro").css("background-color", "#63A088");
 					});
 
 					$(".pelko").click(function () {
-						$(".pelko").css("background-color", "yellow");
+						$(".pelko").css("background-color", "#63A088");
 					});
 					$(".pelko").mouseout(function () {
-						$(".pelko").css("background-color", "cadetblue");
+						$(".pelko").css("background-color", "#63A088");
 					});
 
 					$(".alarm").click(function () {
-						$(".alarm").css("background-color", "yellow");
+						$(".alarm").css("background-color", "#63A088");
 					});
 					$(".alarm").click(function () {
-						$(".alarm").css("background-color", "cadetblue");
+						$(".alarm").css("background-color", "#63A088");
 					});
 
 					$(".countdown").click(function () {
-						$(".countdown").css("background-color", "yellow");
+						$(".countdown").css("background-color", "#63A088");
 					});
 					$(".countdown").click(function () {
-						$(".countdown").css("background-color", "cadetblue");
+						$(".countdown").css("background-color", "#63A088");
 					});
 
 					$(".stopwatch").click(function () {
-						$(".stopwatch").css("background-color", "yellow");
+						$(".stopwatch").css("background-color", "#63A088");
 					});
 					$(".stopwatch").click(function () {
-						$(".stopwatch").css("background-color", "cadetblue");
+						$(".stopwatch").css("background-color", "#63A088");
 					});
 
 					$(".cal").mouseover(function () {
-						$(".cal").css("background-color", "yellow");
+						$(".cal").css("background-color", "#63A088");
 					});
 					$(".cal").mouseout(function () {
-						$(".cal").css("background-color", "cadetblue");
+						$(".cal").css("background-color", "#63A088");
 					});
 				});
 			</script>
@@ -325,7 +336,8 @@
 
 		<!-- FOOTER DISPLAY DIV-->
 
-		<div class="footer center"> F / T / L </div>
+		<div class="footer center"> <a href="https://www.facebook.com/srwmay"><i class="fa fa-facebook-square" aria-hidden="true"></i></a> / <a href="https://twitter.com/srwmay"><i class="fa fa-twitter-square" aria-hidden="true"></i></a> / <a href="https://www.linkedin.com/in/srwmay"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+		</div>
 
 		<!-- MAIN HTML JAVASCRIPT-->
 
@@ -405,11 +417,11 @@
 
 
 				this.getCalHtml = function () {
-					return '<div id="calbutton" class="calcot center inline"><div id="pastw" class="pastw"></div><div id="presentd" class="presentd"></div><div id="futurew" class="futurew"></div></div>'
+					return '<div id="calbutton" class="calcot center inline"><div id="pastw" class="pastw"></div><div id="presentd" class="presentd"></div><div id="futurew" class="futurew"></div><div id="carrot" class="carrot"></div><div id="cdaytext" class="cdaytext">Here is the current second of the minute</div></div>'
 				};
 
 				this.next = function () {
-					switchCalendar(new Hour);
+					switchCalendar(new Hour());
 				}
 
 				this.updateCal = function () {
@@ -475,7 +487,7 @@
 				}
 
 				this.getCalHtml = function () {
-					return '<div class="calcot center inline"><div id="nowline" class="nowline"></div><div id="pastw" class="pastw"></div><div id="presentd" class="presentd"></div><div id="futurew" class="futurew"></div></div>'
+					return '<div class="calcot center inline"><div id="nowline" class="nowline"></div><div id="pastw" class="pastw"></div><div id="presentd" class="presentd"></div><div id="futurew" class="futurew"></div><div id="carrot" class="carrot"></div><div id="cdaytext" class="cdaytext">Here is the current minute of the hour</div></div>'
 				};
 
 				this.updateCal = function () {
@@ -531,7 +543,7 @@
 				}
 
 				this.getCalHtml = function () {
-					return '<div class="calcot center"><div id="pastw" class="pastw"></div><div id="presentd" class="presentd"></div><div id="futurew" class="futurew"></div></div>'
+					return '<div class="calcot center"><div id="pastw" class="pastw"></div><div id="presentd" class="presentd"></div><div id="futurew" class="futurew"></div><div id="carrot" class="carrot"></div><div id="cdaytext" class="cdaytext">Here is the current hour of the day</div></div>'
 				};
 
 				this.updateCal = function () {
@@ -585,7 +597,7 @@
 				}
 
 				this.getCalHtml = function () {
-					return '<div class="calcot center"><div id="pastw" class="pastw"></div><div id="presentd" class="presentd"></div><div id="futurew" class="futurew"></div></div>'
+					return '<div class="calcot center"><div id="pastw" class="pastw"></div><div id="presentd" class="presentd"></div><div id="futurew" class="futurew"></div><div id="carrot" class="carrot"></div><div id="cdaytext" class="cdaytext">Here is the current day of the week</div></div>'
 				};
 
 				this.updateCal = function () {
@@ -657,7 +669,7 @@
 				};
 
 				this.getCalHtml = function () {
-					return '<div class="calcot center"><div id="pastweeks" class="pastw"></div><div id="pastweek" class="pastweek"></div><div id="presentday" class="presentd"></div><div id="futureweek" class="futureweek"></div><div id="futureweeks" class="futurew"></div></div>'
+					return '<div class="calcot center"><div id="pastweeks" class="pastw"></div><div id="pastweek" class="pastweek"></div><div id="presentday" class="presentd"></div><div id="futureweek" class="futureweek"></div><div id="futureweeks" class="futurew"></div><div id="carrot" class="carrot"></div><div id="cdaytext" class="cdaytext">Here is the current week & day of the month</div></div>'
 				};
 
 				this.updateCal = function () {
@@ -755,7 +767,7 @@
 			// CLOCK CONSTRUCTOR
 			function Clock() {
 				this.getHtml = function () {
-					return '<div id="clock" class="jumbo clock"></div><br><div id="todayis" class="message"></div>';
+					return '<div id="clock" class="jumbo clock"></div><div id="todayis" class="message"></div>';
 				};
 				this.update = function () {
 					var date = moment(new Date).format('h:mm:ss');
@@ -840,7 +852,7 @@
 				};
 				// GETHTML RETURNS THE REQUIRED HTML TO DISPLAY TO DOM
 				this.getHtml = function () {
-					return '<div id="pomodoro" class="jumbo"></div><br><div id="cycrem" class="message"></div>'
+					return '<div id="pomodoro" class="jumbo"></div><<div id="cycrem" class="message"></div>'
 				};
 				// UPDATE GIVES THE APP THE VALUES THAT NEED TO BE UPDATING CURRENTLY
 				this.update = function () {
@@ -895,7 +907,7 @@
 				};
 				// GETHTML RETURNS THE REQUIRED HTML TO DISPLAY TO DOM
 				this.getHtml = function () {
-					return '<div id="pelko" class="jumbo"></div><br><div id="counter" class="message"></div>'
+					return '<div id="pelko" class="jumbo"></div><div id="counter" class="message"></div>'
 				};
 				// UPDATE GIVES THE APP THE VALUES THAT NEED TO BE UPDATING CURRENTLY
 				this.update = function () {
@@ -943,7 +955,7 @@
 				this.checkAlarm();
 
 				this.getHtml = function () {
-					return '<div id="alarm" class="jumbo"></div><br><div id="message" class="message">Your alarm is set for <span id="alarmmessage"></span></div>'
+					return '<div id="alarm" class="jumbo"></div><div id="message" class="message">Your alarm is set for <span id="alarmmessage"></span></div>'
 				};
 
 				this.update = function () {
@@ -981,7 +993,7 @@
 				};
 
 				this.getHtml = function () {
-					return '<div id="countdown" class="jumbo"></div><br><div id="counter" class="message">Test</div>'
+					return '<div id="countdown" class="jumbo"></div><div id="counter" class="message">Test</div>'
 				};
 
 				this.update = function () {
@@ -1004,19 +1016,47 @@
 			function Stopwatch() {
 				this.activeTime = moment.duration();
 
+				this.state = 1;
+
+				this.paused = 0;
+				this.started = 1;
+				this.split = 2
+				this.reset = 3;
+
+				this.checkState = function () {
+					if (this.state = 0) {
+
+					}
+				}
+
 				this.getHtml = function () {
-					return '<div id="stopwatch" class="jumbo"></div><br><div id="message" class="message"></div>'
+					return '<div id="stopwatch" class="jumbo"></div><div id="message" class="message"><button id="swstart">Start</button><button id="SWPause">Pause</button><button id="SWSplit">Split</button><button id="SWReset">Reset</button></div>'
 				};
 
 				this.update = function () {
 					this.activeTime = this.activeTime.add(1, 's');
 					$('#stopwatch').html(Math.floor(this.activeTime.asHours()) + moment.utc(this.activeTime.asMilliseconds()).format(":mm:ss"));
-					$('#message').html("<button id='SWStart'>Start</button><button id='SWStart'>Pause</button><button id='SWStart'>Split</button><button id='SWStart'>Reset</button>");
 					if (this.alarmTime < 1) {
 						this.checkState();
 					}
-				}
+				};
+
+				$('#swstart').click(function () {
+					console.log("working?");
+				});
+
+				$('#SWPause').click(function () {
+					console.log("working?");
+				}.bind(this));
+				$('#SWSplit').click(function () {
+					console.log("working?");
+				}.bind(this));
+				$('#SWReset').click(function () {
+					console.log("working?");
+				}.bind(this));
 			};
+
+
 
 
 			$("#swbutton").click(function () {

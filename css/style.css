@@ -1,6 +1,6 @@
 body {
 	margin: 0;
-	background-color: cadetblue;
+	background-color: #63A088;
 	font-family: 'Yantramanav', sans-serif;
 	font-weight: 100;
 	color: black;
@@ -15,7 +15,7 @@ TEAL: #008E97 GOLD: #F58220 DARK: #005778 */
 }
 
 .jumbo {
-	font-size: 10em;
+	font-size: 9em;
 	transition: .6s;
 	margin-bottom: -3%
 }
@@ -42,7 +42,7 @@ TEAL: #008E97 GOLD: #F58220 DARK: #005778 */
 }
 
 .message {
-	margin-bottom: 5%;
+	margin-bottom: 3%;
 	font-size: 3vh;
 	padding: 0% 0% 0% 0%;
 	font-weight: 100;
@@ -141,7 +141,7 @@ TEAL: #008E97 GOLD: #F58220 DARK: #005778 */
 .ctoday {
 	position: relative;
 	height: 100%;
-	background-color: #A0615F;
+	background-color: #36213E;
 }
 
 .cday {
@@ -153,7 +153,7 @@ TEAL: #008E97 GOLD: #F58220 DARK: #005778 */
 	right: 42.86%;
 	height: 96%;
 	width: 14.28%;
-	background-color: rebeccapurple;
+	background-color: #36213E;
 	z-index: 2;
 }
 
@@ -185,7 +185,7 @@ TEAL: #008E97 GOLD: #F58220 DARK: #005778 */
 
 .pastw {
 	position: absolute;
-	background-color: red;
+	background-color: #56638A;
 	height: 92%;
 	width: auto;
 }
@@ -198,19 +198,19 @@ TEAL: #008E97 GOLD: #F58220 DARK: #005778 */
 
 .futurew {
 	position: absolute;
-	background-color: orange;
+	background-color: #483A58;
 	height: 92%;
 }
 
 .pastweek {
 	position: absolute;
-	background-color: blue;
+	background-color: skyblue;
 	height: 92%;
 }
 
 .futureweek {
 	position: absolute;
-	background-color: green;
+	background-color: skyblue;
 	height: 92%;
 }
 
@@ -236,7 +236,6 @@ keeps perspective */ .flip-container {
 }
 
 h4 {
-	margin-top: 17vh;
 	z-index: 1;
 }
 
