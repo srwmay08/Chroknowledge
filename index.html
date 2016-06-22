@@ -7,7 +7,7 @@
 	<!-- CSS STYLING AND GOOGLE FONTS -->
 	<link href='https://fonts.googleapis.com/css?family=Yantramanav:400,100' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
-  <link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/style.css">
 
 	<link rel="stylesheet" href="css/mobile.css">
@@ -350,18 +350,18 @@
 			var activeComponent = null;
 			var activeCalendar = null;
 
-
+			function calToDom() {
+				var calendaractive = $('#active');
+				calendaractive.append(activeCalendar.getCalHtml());
+			};
 
 			// ADD TO DOM FUNCTION - adds the activeComponent.html to the #active ID tag.
 			function addToDom() {
-				var active = $('#active');
-				active.html(activeComponent.getHtml());
+				var active = $('#calbutton');
+				active.append(activeComponent.getHtml());
 			};
 
-			function calToDom() {
-				var calendaractive = $('#calbar');
-				calendaractive.html(activeCalendar.getCalHtml());
-			};
+
 
 			// SWITCH BETWEEN ACTIVE COMPONENT FUNCTIONS - changes the active component, adds it to the dom, and then updates activeComponent to the page
 			function switchComponent(item) {
@@ -421,7 +421,7 @@
 
 
 				this.getCalHtml = function () {
-					return '<div id="calbutton" class="calcot center inline"><div id="pastw" class="pastw"></div><div id="presentd" class="presentd"></div><div id="futurew" class="futurew"></div><div id="carrot" class="carrot"></div><div id="cdaytext" class="cdaytext">Here is the current second of the minute</div></div>'
+					return '<div id="calbutton" class="calcot center inline"><div id="pastw" class="pastw"></div><div id="presentd" class="presentd"></div><div id="futurew" class="futurew"></div>'
 				};
 
 				this.next = function () {
@@ -1068,6 +1068,17 @@
 			});
 
 			// CALENDAR CONSTRUCTOR
+			// LOAD THE CLOCK USING THE SWITCHCOMPONENT
+			switchCalendar(new Minute());
+
+			// SET INTERVAL ON THE ACTIVECOMPONENT UPDATE
+			setInterval(function () {
+				if (!activeCalendar) {
+					return;
+				}
+
+				activeCalendar.updateCal();
+			}, 1000 / 60);
 
 			// LOAD THE CLOCK USING THE SWITCHCOMPONENT
 			switchComponent(new Clock());
@@ -1080,18 +1091,6 @@
 
 				activeComponent.update();
 			}, 1000);
-
-			// LOAD THE CLOCK USING THE SWITCHCOMPONENT
-			switchCalendar(new Today());
-
-			// SET INTERVAL ON THE ACTIVECOMPONENT UPDATE
-			setInterval(function () {
-				if (!activeCalendar) {
-					return;
-				}
-
-				activeCalendar.updateCal();
-			}, 1000 / 60);
 		</script>
 	</div>
 </body>
